@@ -1,6 +1,6 @@
 describe('fg-directive', function() {
 
-  var $element, $compile, $templateCache, $scope, fgUtils, formCtrlMock;
+  var $element, $compile, $templateCache, $scope, fgUtils, formCtrlMock, FgField;
 
   beforeEach(function() {
 
@@ -14,12 +14,13 @@ describe('fg-directive', function() {
 
     module('fg');
 
-    inject(function(_$compile_, _$templateCache_, _$rootScope_, _fgUtils_) {
+    inject(function(_$compile_, _$templateCache_, _$rootScope_, _fgUtils_, _FgField_) {
 
       $compile = _$compile_;
       $templateCache = _$templateCache_;
       $scope = _$rootScope_.$new();
       fgUtils = _fgUtils_;
+      FgField = _FgField_;
 
       // Needed for the require directive flag
 
@@ -30,7 +31,7 @@ describe('fg-directive', function() {
   });
 
   function createFieldTemplate(field, template) {
-    field = field || new fg.Field('fakeField');
+    field = field || new FgField('fakeField');
     template = template || '<div> {{ field.type }} </div>';
     var templateUrl = fgUtils.formatTemplateUrl(field);
     $templateCache.put(templateUrl, template);

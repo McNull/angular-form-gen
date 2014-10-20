@@ -6,9 +6,24 @@
     Form Edit
   </h1>
 
+  <p>
+    On this example page existing or new forms can be edited or created.
+  </p>
+
+  <ul>
+    <li>The <em>Form Information</em> tab contains applications specific information fields for the form.</li>
+    <li>The <em>Form Schema</em> tab contains the actual schema editor where form fields can be modified.</li>
+    <li>The <em>Form Preview</em> tab allows the form schema to be previewed and tested. Note that this tab is disabled whenever the current form state is invalid.</li>
+  </ul>
+
+  <ul>
+    <li>Click on the (upper right) <em>Save</em> button to store the form.</li>
+    <li>Click on the (upper right) <em>Close</em> button to cancel any modifications.</li>
+  </ul>
+
   <div ng-include="'app/demo/edit/edit-btn-bar.html'"></div>
 
-  <div fg-tabs class="app-form-edit-tabs">
+  <div fg-tabs class="app-demo-tabs app-form-edit-tabs">
 
     <form class="{{ form.layout }}" name="form.$state">
 

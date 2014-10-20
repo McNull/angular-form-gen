@@ -3,17 +3,23 @@
 
   <div form-breadcrumb></div>
   
-  <h1>{{ form.name }}</h1>
-
-  <div fg-tabs>
+  <h1>{{ form.name }} Data Entries</h1>
+  <p>
+    These are the data entries associated with the form <em>{{ form.name }}</em>.
+  </p>
+  <ul>
+    <li>Click on the <em>New</em> button to enter a new data entry using the associated form schema.</li>
+    <li>Click on the <em>Edit</em> button to edit an exiting data entry using the associated form schema.</li>
+  </ul>
+  <div fg-tabs class="app-demo-tabs auto-x">
 
     <div fg-tabs-pane="Data List">
-      <table class="table app-table-form-list">
+      <table class="table table-bordered table-responsive app-table-form-list">
         <tr>
           <th ng-repeat="field in form.schema.fields">{{ field.displayName || field.name }}</th>
-          <th>
+          <th class="app-demo-data-table-btn-group">
             <div class="btn-group btn-group-sm pull-right">
-              <button ng-click="addData()" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp;New</button>
+              <button ng-click="addData()" app-table-button="plus">New</button>
             </div>
           </th>
         </tr>
@@ -30,8 +36,8 @@
           <td ng-repeat="field in form.schema.fields">{{ dataEntry[field.name] }}</td>
           <td>
             <div class="btn-group btn-group-sm pull-right">
-              <button ng-click="editData(dataEntry)" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</button>
-              <button ng-click="removeData(dataEntry)" type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>&nbsp;Delete</button>
+              <button ng-click="editData(dataEntry)" app-table-button="pencil">Edit</button>
+              <button ng-click="removeData(dataEntry)" app-table-button="trash" class="btn btn-danger">Delete</button>
             </div>
           </td>
         </tr>

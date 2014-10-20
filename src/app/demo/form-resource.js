@@ -353,7 +353,7 @@ app.factory('formData', function () {
           }
         ]
       },
-      "description": "Example person form"
+      "description": "An example form with some common person fields. It contains two required fields, email input and one field with a custom validation pattern."
     }
   ];
 

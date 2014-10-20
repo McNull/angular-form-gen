@@ -1,6 +1,6 @@
 describe('fg-unique-field-name', function() {
 
-  var $compile, $scope;
+  var $compile, $scope, FgField;
 
   var template =
     '<div fg-schema="schema">' +
@@ -14,17 +14,18 @@ describe('fg-unique-field-name', function() {
   beforeEach(function() {
     module('fg')
 
-    inject(function(_$compile_, _$rootScope_) {
+    inject(function(_$compile_, _$rootScope_, _FgField_) {
 
       $compile = _$compile_;
       $scope = _$rootScope_.$new();
+      FgField = _FgField_;
 
       $scope.schema = {
         fields: [
-          new fg.Field('myType', {
+          new FgField('myType', {
             name: 'name1'
           }),
-          new fg.Field('myType', {
+          new FgField('myType', {
             name: 'name2'
           })
         ]

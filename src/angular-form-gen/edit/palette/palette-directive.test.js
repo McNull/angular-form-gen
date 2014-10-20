@@ -1,6 +1,6 @@
 describe('fg-edit-palette', function () {
 
-  var $controller, $scope, fgConfigMock, $compile, $templateCache, fgUtils, $fixture, schemaCtrl = {};
+  var $controller, $scope, fgConfigMock, $compile, $templateCache, fgUtils, $fixture, schemaCtrl = {}, FgField;
 
   beforeEach(function () {
 
@@ -18,12 +18,13 @@ describe('fg-edit-palette', function () {
       $provide.constant('fgConfig', fgConfigMock);
     });
 
-    inject(function (_$controller_, _$rootScope_, _$compile_, _$templateCache_, _fgUtils_) {
+    inject(function (_$controller_, _$rootScope_, _$compile_, _$templateCache_, _fgUtils_, _FgField_) {
       $controller = _$controller_;
       $scope = _$rootScope_.$new();
       $compile = _$compile_;
       $templateCache = _$templateCache_;
       fgUtils = _fgUtils_;
+      FgField = _FgField_;
     });
 
     $fixture = angular.element('<div></div>');
@@ -56,9 +57,9 @@ describe('fg-edit-palette', function () {
 
       // Arrange
 
-      fgConfigMock.fields.templates.push(new fg.Field('Ein'));
-      fgConfigMock.fields.templates.push(new fg.Field('Zwein'));
-      fgConfigMock.fields.templates.push(new fg.Field('Drein'));
+      fgConfigMock.fields.templates.push(new FgField('Ein'));
+      fgConfigMock.fields.templates.push(new FgField('Zwein'));
+      fgConfigMock.fields.templates.push(new FgField('Drein'));
 
       var fieldCount = fgConfigMock.fields.templates.length;
       
@@ -85,7 +86,7 @@ describe('fg-edit-palette', function () {
 
       // Arrange
 
-      var field = new fg.Field('foo');
+      var field = new FgField('foo');
       fgConfigMock.fields.templates.push(field);
 
       $fixture.append(template);
@@ -115,7 +116,7 @@ describe('fg-edit-palette', function () {
       // -- construct 2 fake templates
 
       var templates = fgConfigMock.fields.templates = [
-        new fg.Field('myType'), new fg.Field('myOtherType')
+        new FgField('myType'), new FgField('myOtherType')
       ];
 
       // -- create two categories and register each fake template

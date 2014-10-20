@@ -4,26 +4,44 @@
   <div form-breadcrumb></div>
 
   <h1>Demostration</h1>
-  <div fg-tabs>
+  <p>
+    These demonstration pages are an example how <em>angular-form-gen</em> <strong>can</strong> be implemented.
+    All data is stored localy in the browser session (there's no server backend) and a small artificial delay has been builtin to simulate backend communication.
+  </p>
+  <p>
+    Below are some pre-created example forms.
+  </p>
+  <ul>
+    <li>
+      Click on the <em>New</em> button to create a new form.
+    </li>
+    <li>
+      Click on the <em>Edit</em> button to edit the schema.
+    </li>
+    <li>
+      Click on the <em>Data</em> button or the name of the form to enter or show data entries of the form.
+    </li>
+  </ul>
+  <div fg-tabs class="app-demo-tabs auto-x">
     <div fg-tabs-pane="Example Forms">
-      <table class="table table-responsive table-hover table-bordered app-table-form-list">
+      <table class="table table-responsive table-bordered app-table-form-list">
         <tr>
           <th>Name</th>
-          <th>Description</th>
-          <th>
+          <th class="hidden-xs">Description</th>
+          <th class="app-demo-form-table-btn-group">
             <div class="btn-group btn-group-sm pull-right">
-              <button ng-click="newForm()" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp;New</button>
+              <button ng-click="newForm()" app-table-button="plus">New</button>
             </div>
           </th>
         </tr>
         <tr ng-repeat="form in forms">
           <td><a ng-href="#!/demo/{{ form.id }}">{{ form.name }}</a></td>
-          <td>{{ form.description }}</td>
+          <td class="hidden-xs">{{ form.description }}</td>
           <td>
             <div class="btn-group btn-group-sm pull-right">
-              <button ng-click="editForm(form)" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</button>
-              <button ng-click="removeForm(form)" type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>&nbsp;Delete</button>
-              <button ng-click="displayDataEntries(form)" type="button" class="btn btn-default"><span class="glyphicon glyphicon-list"></span>&nbsp;Data</button>
+              <button ng-click="editForm(form)"  app-table-button="pencil">Edit</button>
+              <button ng-click="displayDataEntries(form)" app-table-button="list">Data</button>
+              <button ng-click="removeForm(form)" app-table-button="trash" class="btn btn-danger">Delete</button>
             </div>
           </td>
         </tr>

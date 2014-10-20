@@ -1,0 +1,38 @@
+
+table.app-table-form-list > tbody > tr > td, table.app-table-form-list > tbody > tr > th {
+  vertical-align: middle;
+}
+
+.app-form-description {
+  margin-bottom: 20px;
+}
+
+.app-demo-tabs {
+  margin-top: 30px;
+}
+
+.app-demo-tabs.auto-x .tab-content {
+  overflow-x: auto;
+}
+
+.app-demo-form-table-btn-group {
+  width: 120px;
+}
+
+.app-demo-data-table-btn-group {
+  width: 90px;
+}
+@media screen and (min-width: 992px) {
+  .app-demo-form-table-btn-group {
+    width: 210px;
+  }
+
+  .app-demo-data-table-btn-group {
+    width: 150px;
+  }
+}
+
+.collapse-xs {
+  display: none;
+}
+

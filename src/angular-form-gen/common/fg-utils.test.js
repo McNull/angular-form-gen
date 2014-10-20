@@ -3,6 +3,7 @@ describe('fgUtils', function() {
   var fgUtils;
   var $templateCache;
   var fgConfigMock;
+  var FgField;
 
   beforeEach(function() {
     module('fg');
@@ -17,9 +18,10 @@ describe('fgUtils', function() {
       $provide.constant('fgConfig', fgConfigMock);
     });
 
-    inject(function(_fgUtils_, _$templateCache_) {
+    inject(function(_fgUtils_, _$templateCache_, _FgField_) {
       fgUtils = _fgUtils_;
       $templateCache = _$templateCache_;
+      FgField = _FgField_;
     });
   });
 
@@ -29,7 +31,7 @@ describe('fgUtils', function() {
 
       // Arrange
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
 
       // Act
 
@@ -48,7 +50,7 @@ describe('fgUtils', function() {
     it('should check the template cache for an entry', function() {
       // Arrange
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
       var cacheKey = fgUtils.formatTemplateUrl(field.type);
 
       spyOn($templateCache, 'get').andCallFake(function() {
@@ -67,7 +69,7 @@ describe('fgUtils', function() {
     it('should check the template cache for an entry in a specified area', function() {
       // Arrange
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
       var area = 'myArea';
       var cacheKey = fgUtils.formatTemplateUrl(field.type, area);
 
@@ -87,7 +89,7 @@ describe('fgUtils', function() {
     it('should fallback to the default area when the specified area does not contain a template', function() {
       // Arrange
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
       var area = 'myArea';
       var areaCacheKey = fgUtils.formatTemplateUrl(field.type, area);
       var defaultCacheKey = fgUtils.formatTemplateUrl(field.type, 'default');
@@ -109,7 +111,7 @@ describe('fgUtils', function() {
     it('should NOT fallback to the default area when the specified area is "properties"', function() {
       // Arrange
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
       var area = 'properties';
       var areaCacheKey = fgUtils.formatTemplateUrl(field.type, area);
       var defaultCacheKey = fgUtils.formatTemplateUrl(field.type, 'default');
@@ -131,7 +133,7 @@ describe('fgUtils', function() {
     it('should return "not-in-cache" template', function() {
       // Arrange
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
       var area = 'myArea';
       var expected = fgUtils.formatTemplateUrl('not-in-cache');
 
@@ -148,7 +150,7 @@ describe('fgUtils', function() {
     //      // Arrange
     //
     //      var templateAlias = 'myAlias';
-    //      var field = new fg.Field('myType');
+    //      var field = new FgField('myType');
     //
     //      fgConfigMock.fields.aliases['myType'] = templateAlias;
     //      var expected = fgUtils.formatTemplateUrl(templateAlias);

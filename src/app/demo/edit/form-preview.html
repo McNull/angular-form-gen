@@ -17,16 +17,17 @@
 
         <fieldset class="col-sm-4">
           <legend>Form State</legend>
-          <table class="table">
-            <tr>
-              <th>Valid</th>
-              <td>{{ preview.state.$valid }}</td>
-            </tr>
-            <tr>
-              <th>Pristine</th>
-              <td>{{ preview.state.$pristine }}</td>
-            </tr>
-          </table>
+
+
+          <ul class="list-group">
+            <li class="text-center list-group-item" ng-class="{ 'list-group-item-success': preview.state.$valid, 'list-group-item-danger': !preview.state.$valid }">
+              Valid: <strong>{{ preview.state.$valid }}</strong>
+            </li>
+            <li class="text-center list-group-item" ng-class="{ 'list-group-item-info': preview.state.$dirty, 'list-group-item-warning': !preview.state.$dirty }">
+              Dirty: <strong>{{ preview.state.$dirty }}</strong>
+            </li>
+          </ul>
+
         </fieldset>
       </div>
 

@@ -26,7 +26,9 @@
     "/build-config.js",
     "/gulpfile.js",
     "/package.json",
-    "/karma.conf.js"
+    "/karma.conf.js",
+    "/README",
+    "/LICENSE"
   ],
   "dependencies": {
     "bootstrap": "~3.2.0",

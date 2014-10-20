@@ -1,15 +1,16 @@
 describe('fg-schema-controller', function() {
 
-  var $controller, $scope;
+  var $controller, $scope, FgField;
 
   beforeEach(function() {
 
     module('fg');
 
-    inject(function(_$controller_, _$rootScope_) {
+    inject(function(_$controller_, _$rootScope_, _FgField_) {
 
       $controller = _$controller_;
       $scope = _$rootScope_.$new();
+      FgField = _FgField_;
 
     });
   });
@@ -65,7 +66,7 @@ describe('fg-schema-controller', function() {
 
       controller.model(schema);
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
 
       // Act
 
@@ -84,9 +85,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -96,7 +97,7 @@ describe('fg-schema-controller', function() {
 
       controller.model(schema);
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
 
       // Act
 
@@ -122,7 +123,7 @@ describe('fg-schema-controller', function() {
 
       controller.model(schema);
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
 
       // Act
 
@@ -140,9 +141,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -152,7 +153,7 @@ describe('fg-schema-controller', function() {
 
       controller.model(schema);
 
-      var field = new fg.Field('myType');
+      var field = new FgField('myType');
 
       // Act
 
@@ -178,9 +179,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -211,9 +212,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -247,9 +248,9 @@ describe('fg-schema-controller', function() {
 
         var schema = {
           fields: [
-            new fg.Field('Ein'),
-            new fg.Field('Zwein'),
-            new fg.Field('Drein')
+            new FgField('Ein'),
+            new FgField('Zwein'),
+            new FgField('Drein')
           ]
         };
 
@@ -280,9 +281,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -309,9 +310,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -338,9 +339,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -367,9 +368,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -396,9 +397,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -425,9 +426,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 
@@ -454,9 +455,9 @@ describe('fg-schema-controller', function() {
 
       var schema = {
         fields: [
-          new fg.Field('Ein'),
-          new fg.Field('Zwein'),
-          new fg.Field('Drein')
+          new FgField('Ein'),
+          new FgField('Zwein'),
+          new FgField('Drein')
         ]
       };
 

@@ -1,22 +1,22 @@
 describe('fg-edit-canvas-field-properties-directive', function() {
 
-  var $compile, $scope, $templateCache;
+  var $compile, $scope, $templateCache, FgField;
 
   beforeEach(function() {
 
     module('fg');
 
-    inject(function(_$compile_, _$rootScope_, _$templateCache_) {
+    inject(function(_$compile_, _$rootScope_, _$templateCache_, _FgField_) {
 
       $compile = _$compile_;
       $scope = _$rootScope_.$new();
       $templateCache = _$templateCache_;
-
+      FgField = _FgField_;
     });
   });
 
   function setupElementAndScope(field, template) {
-    field = field || new fg.Field('myType');
+    field = field || new FgField('myType');
 //    fields = fields || [field];
 
 //    if (_.indexOf(fields, field) === -1) {
@@ -205,10 +205,10 @@ describe('fg-edit-canvas-field-properties-directive', function() {
 
   //     // Arrange
 
-  //     var field1 = new fg.Field('myType1', {
+  //     var field1 = new FgField('myType1', {
   //       name: 'notUnique'
   //     });
-  //     var field2 = new fg.Field('myType2', {
+  //     var field2 = new FgField('myType2', {
   //       name: 'notUnique'
   //     });
 

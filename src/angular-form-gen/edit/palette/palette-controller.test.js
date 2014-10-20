@@ -1,6 +1,6 @@
 describe('fg-edit-palette', function () {
 
-  var $controller, $scope, fgConfigMock, $compile, $templateCache;
+  var $controller, $scope, fgConfigMock, $compile, $templateCache, FgField;
 
   beforeEach(function () {
 
@@ -17,11 +17,12 @@ describe('fg-edit-palette', function () {
       $provide.constant('fgConfig', fgConfigMock);
     });
 
-    inject(function (_$controller_, _$rootScope_, _$compile_, _$templateCache_) {
+    inject(function (_$controller_, _$rootScope_, _$compile_, _$templateCache_, _FgField_) {
       $controller = _$controller_;
       $scope = _$rootScope_.$new();
       $compile = _$compile_;
       $templateCache = _$templateCache_;
+      FgField = _FgField_;
     });
   });
 
@@ -32,7 +33,7 @@ describe('fg-edit-palette', function () {
       // Arrange
 
       var templates = fgConfigMock.fields.templates = [
-        new fg.Field('myType'), new fg.Field('myOtherType')
+        new FgField('myType'), new FgField('myOtherType')
       ];
 
       // Act
@@ -85,7 +86,7 @@ describe('fg-edit-palette', function () {
         // Arrange
 
         var templates = fgConfigMock.fields.templates = [
-          new fg.Field('myType'), new fg.Field('myOtherType')
+          new FgField('myType'), new FgField('myOtherType')
         ];
 
         var categories = fgConfigMock.fields.categories = {
@@ -111,7 +112,7 @@ describe('fg-edit-palette', function () {
         // Arrange
 
         var templates = fgConfigMock.fields.templates = [
-          new fg.Field('myType'), new fg.Field('myOtherType')
+          new FgField('myType'), new FgField('myOtherType')
         ];
 
         var categories = fgConfigMock.fields.categories = {

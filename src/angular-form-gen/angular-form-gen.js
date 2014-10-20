@@ -1,22 +1,24 @@
 var fg = angular.module('fg', ['dq']);
+
 /**
  * Constructor for form-gen Field types.
  * @param {string} type         Indicates the type of field
  * @param {object} properties   [optional] Initial property values
  */
-fg.Field = function(type, properties) {
-  this.name = this.type = type;
+fg.constant('FgField', function FgField(type, properties) {
+    this.name = this.type = type;
 
-  if (properties) {
-    angular.extend(this, properties);
+    if (properties) {
+      angular.extend(this, properties);
+    }
+
+    this.displayName = this.displayName || this.type.charAt(0).toUpperCase() + this.type.substring(1);
   }
+);
 
-  this.displayName = this.displayName || this.type.charAt(0).toUpperCase() + this.type.substring(1);
-};
+fg.config(function ($provide) {
 
-fg.config(function($provide) {
-
-  $provide.provider('fgConfig', function() {
+  $provide.provider('fgConfig', function () {
 
     var config = {
       enableDebugInfo: true,
@@ -46,12 +48,12 @@ fg.config(function($provide) {
     }
 
     return {
-      debug: function(value) {
+      debug: function (value) {
         config.enableDebugInfo = value;
       },
       fields: {
-        add: function(objectTemplate, categories, templateUrl, propertiesTemplateUrl) {
-          
+        add: function (objectTemplate, categories, templateUrl, propertiesTemplateUrl) {
+
           if (!objectTemplate || !objectTemplate.type || !categories || !categories.length) {
             throw new Error('Need a valid objectTemplate and at least one category');
           }
@@ -67,44 +69,42 @@ fg.config(function($provide) {
           this.category(objectTemplate.type, categories);
           this.renderInfo(objectTemplate.type, templateUrl, propertiesTemplateUrl);
         },
-        remove: function(type) {
+        remove: function (type) {
           var idx = indexOfTemplate(type);
 
-          if(idx !== -1) {
+          if (idx !== -1) {
             templates.splice(idx, 1);
           }
 
           this.category(type);
           this.renderInfo(type);
         },
-        renderInfo: function(fieldType, templateUrl, propertiesTemplateUrl) {
-          var renderInfo = {
+        renderInfo: function (fieldType, templateUrl, propertiesTemplateUrl) {
+          config.fields.renderInfo[fieldType] = {
             templateUrl: templateUrl,
             propertiesTemplateUrl: propertiesTemplateUrl
           };
-
-          config.fields.renderInfo[fieldType] = renderInfo;
         },
-        category: function(fieldType, categories) {
+        category: function (fieldType, categories) {
           if (!angular.isArray(categories)) {
             categories = [categories];
           }
 
-          angular.forEach(config.fields.categories, function(category) {
+          angular.forEach(config.fields.categories, function (category) {
             delete category[fieldType];
           });
 
-          angular.forEach(categories, function(category) {
+          angular.forEach(categories, function (category) {
             if (config.fields.categories[category] === undefined) {
               config.fields.categories[category] = {};
             }
 
             config.fields.categories[category][fieldType] = true;
-          });          
+          });
         }
       },
       validation: {
-        message: function(typeOrObject, message) {
+        message: function (typeOrObject, message) {
 
           var messages = config.validation.messages;
 
@@ -119,16 +119,16 @@ fg.config(function($provide) {
             angular.extend(messages, typeOrObject);
           }
         },
-        pattern: function(nameOrObject, pattern) {
+        pattern: function (nameOrObject, pattern) {
 
-          if(angular.isString(nameOrObject)) {
+          if (angular.isString(nameOrObject)) {
             config.validation.patterns[name] = pattern;
           } else {
             angular.extend(config.validation.patterns, nameOrObject);
           }
         }
       },
-      $get: function() {
+      $get: function () {
         return config;
       }
     };
@@ -136,7 +136,7 @@ fg.config(function($provide) {
 
 });
 
-fg.config(function(fgConfigProvider) {
+fg.config(function (fgConfigProvider, FgField) {
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // Messages
@@ -160,30 +160,34 @@ fg.config(function(fgConfigProvider) {
 
   var categories = {
     'Text input fields': [
-      new fg.Field('text', {
+      new FgField('text', {
         displayName: 'Textbox'
       }),
-      new fg.Field('email'),
-      new fg.Field('number', { 
-        validation: { maxlength: 15 /* to prevent > Number.MAX_VALUE */ }  
+      new FgField('email'),
+      new FgField('number', {
+        validation: { maxlength: 15 /* to prevent > Number.MAX_VALUE */ }
       }),
-      new fg.Field('password'),
-      new fg.Field('textarea')
+      new FgField('password'),
+      new FgField('textarea')
     ],
     'Checkbox fields': [
-      new fg.Field('checkbox', { nolabel: true }),
-      new fg.Field('checkboxlist', {
+      new FgField('checkbox', { nolabel: true }),
+      new FgField('checkboxlist', {
         displayName: 'Checkbox List',
-        options: [{
-          value: '1',
-          text: 'Option 1'
-        }, {
-          value: '2',
-          text: 'Option 2'
-        }, {
-          value: '3',
-          text: 'Option 3'
-        }],
+        options: [
+          {
+            value: '1',
+            text: 'Option 1'
+          },
+          {
+            value: '2',
+            text: 'Option 2'
+          },
+          {
+            value: '3',
+            text: 'Option 3'
+          }
+        ],
         value: {
           '1': true,
           '2': true
@@ -191,35 +195,43 @@ fg.config(function(fgConfigProvider) {
       })
     ],
     'Select input fields': [
-      new fg.Field('radiobuttonlist', {
+      new FgField('radiobuttonlist', {
         displayName: 'Radiobutton List',
-        options: [{
-          value: '1',
-          text: 'Option 1'
-        }, {
-          value: '2',
-          text: 'Option 2'
-        }, {
-          value: '3',
-          text: 'Option 3'
-        }],
+        options: [
+          {
+            value: '1',
+            text: 'Option 1'
+          },
+          {
+            value: '2',
+            text: 'Option 2'
+          },
+          {
+            value: '3',
+            text: 'Option 3'
+          }
+        ],
         value: '1'
       }),
-      new fg.Field('selectlist', {
+      new FgField('selectlist', {
         displayName: 'Select List',
-        options: [{
-          value: '1',
-          text: 'Option 1'
-        }, {
-          value: '2',
-          text: 'Option 2'
-        }, {
-          value: '3',
-          text: 'Option 3'
-        }],
+        options: [
+          {
+            value: '1',
+            text: 'Option 1'
+          },
+          {
+            value: '2',
+            text: 'Option 2'
+          },
+          {
+            value: '3',
+            text: 'Option 3'
+          }
+        ],
         value: '1'
       }) // ,
-      // new fg.Field('dropdownlist', {
+      // new FgField('dropdownlist', {
       //   options: [{
       //     value: '1',
       //     text: 'Option 1'
@@ -234,11 +246,11 @@ fg.config(function(fgConfigProvider) {
       // })
     ]
   };
-  
 
-  angular.forEach(categories, function(fields, category) {
-    angular.forEach(fields, function(field) {
-      fgConfigProvider.fields.add(field, category /*, templateUrl, propertiesTemplateUrl */ );
+
+  angular.forEach(categories, function (fields, category) {
+    angular.forEach(fields, function (field) {
+      fgConfigProvider.fields.add(field, category /*, templateUrl, propertiesTemplateUrl */);
     });
   });
 
