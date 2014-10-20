@@ -1,0 +1,22 @@
+<div class="fg-edit-palette">
+  <!--<div class="form-horizontal">-->
+    <fieldset>
+      <div fg-edit-palette-categories data-category="selectedCategory"></div>
+      <div ng-repeat="template in templates | filter:templateFilter" class="fg-field"
+           dq-draggable="fg-edit-canvas" dq-drag-begin="{ source: 'palette', field: template }">
+        <div class="fg-field-overlay">
+          <div class="btn-toolbar btn-toolbar-right">
+            <button class="btn btn-default btn-xs btn-primary" type="button" ng-click="schemaCtrl.addField(template)"
+                title="Add this field.">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+          </div>
+        </div>
+        <div fg-field="template"
+             fg-tab-index="-1"
+             fg-no-validation-summary="true"
+             fg-edit-mode="true"></div>
+      </div>
+    </fieldset>
+  <!--</div>-->
+</div>

@@ -1,0 +1,17 @@
+<div fg-tabs-pane="Properties">
+  <div fg-property-field-common="{ fieldname: true, displayname: true, placeholder: true, tooltip: true }"></div>
+  <div fg-property-field-value>
+    <div fg-field-input
+         fg-dropdown-input="field.options"
+         ng-model="field.value"
+         ng-minlength="{{ field.schema.validation.minlength }}"
+         ng-maxlength="{{ field.schema.validation.maxlength }}"
+         ng-pattern="/{{ field.schema.validation.pattern }}/">
+    </div>
+  </div>
+</div>
+<div fg-tabs-pane="Validation">
+  <div fg-property-field-validation="{ required: true, minlength: true, maxlength: true, pattern: true }"></div>
+</div>
+
+

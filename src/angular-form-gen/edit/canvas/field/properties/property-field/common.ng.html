@@ -1,0 +1,52 @@
+<!-- focus -->
+<div ng-if="fields.focus">
+  <div fg-property-field="fieldFocus">
+    <div class="checkbox">
+      <label title="Set the initial focus to this field.">
+        <input type="checkbox" ng-model="field.focus"/>
+        Set input focus
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- fieldName -->
+<div ng-if="fields.fieldname">
+  <div fg-property-field="fieldName" fg-property-field-label="Name">
+    <input type="text"
+           class="form-control"
+           name="fieldName"
+           ng-model="field.name"
+           ng-required="true"
+           ng-pattern="/^[a-zA-Z]([\w]+)?$/"
+           fg-unique-field-name/>
+  </div>
+</div>
+
+<!-- displayName -->
+<div ng-if="fields.displayname">
+  <div fg-property-field="displayName" fg-property-field-label="Display name">
+    <input type="text" class="form-control" name="displayName" ng-model="field.displayName"/>
+  </div>
+</div>
+
+<!-- placeholder -->
+<div ng-if="fields.placeholder">
+  <div fg-property-field="fieldPlaceholder" fg-property-field-label="Placeholder text">
+    <input type="text"
+           class="form-control"
+           name="fieldPlaceholder"
+           ng-model="field.placeholder"/>
+  </div>
+</div>
+
+<!-- tooltip -->
+<div ng-if="fields.tooltip">
+  <div fg-property-field="fieldTooltip" fg-property-field-label="Tooltip">
+    <input type="text"
+           class="form-control"
+           name="fieldTooltip"
+           ng-model="field.tooltip"/>
+  </div>
+</div>
+

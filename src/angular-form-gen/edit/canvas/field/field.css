@@ -1,0 +1,9 @@
+.fg-field-properties-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.fg-field-properties-container.visible {
+  max-height: 1000px;
+}

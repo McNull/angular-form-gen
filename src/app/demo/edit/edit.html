@@ -1,0 +1,32 @@
+<div class="container app-form-edit">
+
+  <div form-breadcrumb></div>
+
+  <h1>
+    Form Edit
+  </h1>
+
+  <div ng-include="'app/demo/edit/edit-btn-bar.html'"></div>
+
+  <div fg-tabs class="app-form-edit-tabs">
+
+    <form class="{{ form.layout }}" name="form.$state">
+
+      <div fg-tabs-pane="Form Information" render-always="true">
+        <div ng-include="'app/demo/edit/form-edit.html'"></div>
+      </div>
+
+      <div fg-tabs-pane="Form Schema" render-always="true">
+        <div ng-include="'app/demo/edit/form-edit-schema.html'"></div>
+      </div>
+
+    </form>
+
+    <div fg-tabs-pane="Form Preview" disabled="form.$state.$invalid">
+      <div ng-include="'app/demo/edit/form-preview.html'"></div>
+    </div>
+
+  </div>
+
+</div>
+

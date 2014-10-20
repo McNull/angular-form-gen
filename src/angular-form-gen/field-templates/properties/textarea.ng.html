@@ -1,0 +1,16 @@
+<div fg-tabs-pane="Properties">
+  <div
+      fg-property-field-common="{ fieldname: true, displayname: true, placeholder: true, tooltip: true, focus: true }"></div>
+  <div fg-property-field-value>
+    <textarea name="fieldValue"
+              class="form-control"
+              ng-model="field.value"
+              ng-minlength="{{ field.validation.minlength }}"
+              ng-maxlength="{{ field.validation.maxlength }}"
+              ng-pattern="/{{ field.validation.pattern }}/">
+    </textarea>
+  </div>
+</div>
+<div fg-tabs-pane="Validation">
+  <div fg-property-field-validation="{ required: true, minlength: true, maxlength: true, pattern: true }"></div>
+</div>

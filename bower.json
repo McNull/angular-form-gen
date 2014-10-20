@@ -1,0 +1,61 @@
+{
+  "name": "angular-form-gen",
+  "description": "Dynamic form schema generator for AngularJS",
+  "keywords": [
+    "angularjs",
+    "angular",
+    "form",
+    "schema",
+    "generator"
+  ],
+  "version": "0.0.1",
+  "authors": [
+    "Null McNull <no@spam.org>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "gulp-tasks",
+    "src",
+    "dest",
+    "/build-config.js",
+    "/gulpfile.js",
+    "/package.json",
+    "/karma.conf.js"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "angular": "~1.2.21"
+  },
+  "devDependencies": {
+    "angular-route": "~1.2.21",
+    "angular-mocks": "~1.2.21",
+    "jquery": "1.*",
+    "respond": "~1.4.2",
+    "html5shiv": "~3.7.2",
+    "lodash": "~2.4.1",
+    "angular-inform": "~0.0.12",
+    "angular-block-ui": "~0.1.0",
+    "angular-markdown-text": "~0.0.2",
+    "angular-sanitize": "~1.2.21"
+  },
+  "overrides": {
+    "respond": {
+      "main": "dest/respond.min.js"
+    },
+    "angular-mocks": {
+      "ignore": true
+    },
+    "lodash": {
+      "ignore": true
+    },
+    "showdown": {
+      "main": "compressed/showdown.js"
+    }
+  }
+}

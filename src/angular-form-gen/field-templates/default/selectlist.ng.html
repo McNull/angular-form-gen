@@ -1,0 +1,12 @@
+<select class="form-control"
+        fg-field-input
+        fg-field-focus="field.schema.focus"
+		    id="{{ field.$_id }}"
+		    title="{{ field.schema.tooltip }}"
+        ng-model="form.data[field.schema.name]"
+        ng-required="field.schema.validation.required"
+        tabindex="{{ tabIndex }}">
+    <option ng-repeat="option in field.schema.options" 
+    		value="{{ option.value }}" 
+    		ng-selected="form.data[field.schema.name] === option.value">{{ option.text || option.value }}</option>
+</select>

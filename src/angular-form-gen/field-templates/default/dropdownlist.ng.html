@@ -1,0 +1,13 @@
+<div fg-field-input
+	 fg-dropdown-input="field.schema.options"
+	 title="{{ field.schema.tooltip }}"
+	 id="{{ field.$_id }}"
+	 ng-model="form.data[field.schema.name]"
+	 ng-required="field.schema.validation.required"
+	 tabindex="{{ tabIndex }}"
+	 placeholder="{{ field.schema.placeholder }}"
+	 ng-minlength="{{ field.schema.validation.minlength }}"
+	 ng-maxlength="{{ field.schema.validation.maxlength }}"
+	 ng-pattern="/{{ field.schema.validation.pattern }}/"
+	 ng-disabled="isDisabled(field.schema)">
+</div>

@@ -1,0 +1,124 @@
+/*.fg-field-properties .jsonify {
+	margin-left: 20px;
+	margin-right: 20px;
+}*/
+
+.fg-field-properties {
+  position: relative;
+  margin: 15px 0;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  -webkit-touch-callout: initial;
+  -webkit-user-select: initial;
+  -khtml-user-select: initial;
+  -moz-user-select: text;
+  -ms-user-select: initial;
+  user-select: initial;
+
+  z-index: 20; /* above .fg-field-overlay */
+}
+
+/*.fg-field-properties form {*/
+  /*margin-bottom: 0;*/
+/*}*/
+
+.table-field-options {
+
+}
+
+.table-field-options td, .table-field-options th {
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.table-field-options td {
+  border: 0;
+  line-height: 30px;
+}
+
+.table-field-options th {
+}
+
+.table-field-options input[type="checkbox"],
+.table-field-options input[type="radio"] {
+  margin-top: 0;
+}
+
+.table-field-options th.table-field-options-padding {
+  width: 100%;
+}
+
+/*.fg-field-properties .control-label {*/
+/*width: 110px;*/
+/*}*/
+
+.fg-field-properties .fg-tabs {
+  margin-bottom: 10px;
+}
+
+/*.fg-field-properties .fg-tabs-pane {*/
+  /*margin-top: 10px;*/
+/*}*/
+
+/*.fg-field-properties .fg-tabs .tab-content {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid #ddd;
+	border-top: none;
+	border-radius: 0px 0px 4px 4px;
+}*/
+
+/*.fg-field-properties .fg-tabs .nav-tabs a {
+	color: #999;
+	font-weight: 300;
+}
+
+.fg-field-properties .fg-tabs .nav-tabs a:hover {
+	background-color: inherit;
+	color: #333;
+}
+
+.fg-field-properties .fg-tabs .nav-tabs .active a {
+	color: #333;
+	font-weight: normal;
+	border-bottom: 1px solid #fff !important;
+}
+*/
+@media (min-width: 480px) and (max-width: 979px) {
+
+  .table-field-options input[type="text"] {
+    width: 130px;
+  }
+}
+
+/*@media (max-width: 767px) { 
+	.table-field-options input[type="text"] {
+		width: 90px;
+	}	
+}*/
+
+@media (max-width: 480px) {
+
+  .table-field-options input[type="text"] {
+    width: 90px;
+  }
+
+  .fg-field-properties {
+    padding: 10px;
+  }
+
+  /*.fg-field-properties form {*/
+    /*margin: 0;*/
+  /*}*/
+}
+
+
+

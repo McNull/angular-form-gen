@@ -1,0 +1,10 @@
+<div class="form-group fg-property-field" ng-class="{ 'has-error': fieldPropertiesForm[fieldName].$invalid }">
+    <label class="col-sm-5 col-md-4 control-label">
+      {{ fieldLabel }}
+    </label>
+
+    <div class="col-sm-7 col-md-8">
+        <div ng-transclude></div>
+        <div fg-validation-summary="{{ fieldName }}"></div>
+    </div>
+</div>

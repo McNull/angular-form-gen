@@ -1,0 +1,28 @@
+
+.ng-logo-svg {
+  width: 100%;
+}
+
+.ng-logo {
+  height: 180px;
+  animation: slide-in 1s;
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(50%) scale(3,3);
+  }
+}
+
+.ng-logo-text {
+  animation-duration: 1s;
+  animation-name: slide-in-text;
+}
+
+@keyframes slide-in-text {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}

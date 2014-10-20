@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="MainCtrl">
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dynamic form schema generator for AngularJS.">
+  <link rel="shortcut icon" href="app/assets/favicon.ico">
+
+  <title><%- pkg.name %></title>
+
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/angular-inform/dist/angular-inform.min.css">
+  <link rel="stylesheet" href="vendor/angular-block-ui/dist/angular-block-ui.min.css">
+  <% _.forEach(css, function(include) { %>
+  <link rel="stylesheet" href="<%-include%>"><%
+  }); %>
+
+  <!--[if lt IE 9]>
+  <script src="vendor/html5shiv/dist/html5shiv.min.js"></script>
+  <script src="vendor/respond/dest/respond.min.js"></script>
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+
+<header>
+  <div inform class="inform-fixed"></div>
+  <div app-navbar items="menuItems"></div>
+</header>
+
+<section ng-view></section>
+
+  <script src="vendor/showdown/compressed/showdown.js"></script>
+  <script src="vendor/angular/angular.js"></script>
+  <script src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="vendor/angular-route/angular-route.min.js"></script>
+  <script src="vendor/angular-inform/dist/angular-inform.min.js"></script>
+  <script src="vendor/angular-block-ui/dist/angular-block-ui.min.js"></script>
+  <script src="vendor/angular-markdown-text/dist/angular-markdown-text.min.js"></script>
+  <% _.forEach(js, function(include) { %>
+  <script src="<%-include%>"></script><%
+  }); %>
+
+</body>
+</html>

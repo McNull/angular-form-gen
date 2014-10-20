@@ -1,0 +1,3 @@
+<ul class="fg-validation-summary help-block unstyled" ng-if="field.state.$invalid && field.state.$dirty">
+	<li ng-repeat="(key, error) in field.state.$error" ng-if="error" fg-bind-expression="messages[key]"></li>
+</ul>

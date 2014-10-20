@@ -1,0 +1,16 @@
+<div class="jsonify">
+  <div class="btn-toolbar btn-toolbar-right">
+    <button class="btn btn-default btn-xs" type="button"
+            title="Copy the json data."
+            ng-click="copy()">
+      <span class="glyphicon glyphicon-transfer"></span>
+    </button>
+    <button class="btn btn-default btn-xs" type="button"
+            title="Display hidden properties."
+            ng-click="displayHidden = !displayHidden"
+            ng-class="{ 'active': displayHidden }">
+      <span class="glyphicon glyphicon-eye-open"></span>
+    </button>
+  </div>
+  <pre><code>{{ jsonify | j$on:displayHidden }}</code></pre>
+</div>

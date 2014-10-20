@@ -1,0 +1,45 @@
+<div fg-tabs>
+
+  <form name="preview.state" class="{{ form.layout }}">
+
+    <div fg-tabs-pane="Preview" render-always="true">
+
+      <div class="row">
+        <fieldset class="col-sm-8">
+          <legend>{{ form.name }}</legend>
+          <p ng-if="form.description">{{ form.description }}</p>
+
+          <div fg-form
+               fg-schema="form.schema"
+               fg-form-data="preview.data">
+          </div>
+        </fieldset>
+
+        <fieldset class="col-sm-4">
+          <legend>Form State</legend>
+          <table class="table">
+            <tr>
+              <th>Valid</th>
+              <td>{{ preview.state.$valid }}</td>
+            </tr>
+            <tr>
+              <th>Pristine</th>
+              <td>{{ preview.state.$pristine }}</td>
+            </tr>
+          </table>
+        </fieldset>
+      </div>
+
+
+    </div>
+
+    <div fg-tabs-pane="Debug Data">
+      <div jsonify="preview.data"></div>
+    </div>
+
+    <div fg-tabs-pane="Debug State">
+      <div jsonify="preview.state" jsonify-display-hidden="true"></div>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,58 @@
+<div fg-tabs-pane="Properties">
+  <div
+      fg-property-field-common="{ fieldname: true, displayname: true, placeholder: true, tooltip: true, focus: true }"></div>
+
+  <div fg-property-field-value>
+    <input fg-input-number
+           class="form-control"
+           type="text"
+           name="fieldValue"
+           ng-model="field.value"
+           min="{{ field.validation.min }}"
+           max="{{ field.validation.max }}"
+           ng-minlength="{{ field.validation.minlength }}"
+           ng-maxlength="{{ field.validation.maxlength }}"
+           ng-pattern="/{{ field.validation.pattern }}/"/>
+  </div>
+</div>
+
+<div fg-tabs-pane="Validation">
+
+  <!-- min -->
+  <div class="fg-property-field-validation">
+    <div fg-property-field="min"
+         fg-property-field-label="Minimum value">
+      <input fg-input-number
+             fg-field-redraw
+             class="form-control"
+             type="text"
+             name="min"
+             title="The minimum value that should be entered"
+             ng-model="field.validation.min"/>
+    </div>
+
+    <div ng-if="field.validation.min >= 0">
+      <div fg-edit-validation-message="min"></div>
+    </div>
+  </div>
+
+  <!-- max -->
+  <div class="fg-property-field-validation">
+    <div fg-property-field="max"
+         fg-property-field-label="Maximum value">
+      <input fg-input-number
+             fg-field-redraw
+             class="form-control"
+             type="text"
+             name="max"
+             title="The maximum value that should be entered"
+             ng-model="field.validation.max"/>
+    </div>
+
+    <div ng-if="field.validation.max >= 0">
+      <div fg-edit-validation-message="max"></div>
+    </div>
+  </div>
+
+  <div fg-property-field-validation="{ required: true, minlength: true, maxlength: true, pattern: true }"></div>
+</div>

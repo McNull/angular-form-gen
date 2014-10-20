@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+  <li ng-repeat="node in nodes" ng-class="{ active: $last }">
+    <a ng-if="!$last" ng-href="#!{{ node.path }}">{{ node.name }}</a>
+    <span ng-if="$last">{{ node.name }}</span>
+  </li>
+</ol>

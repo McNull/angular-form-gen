@@ -1,0 +1,64 @@
+
+/*.fg-edit-palette .controls {*/
+  /*margin-left: 0;*/
+  /*width: 100%;*/
+/*}*/
+
+/*.fg-edit-palette .control-label {*/
+  /*float: none;*/
+  /*width: 100%;*/
+  /*padding-top: 0;*/
+  /*text-align: left;*/
+/*}*/
+
+/*.fg-edit-palette .fg-field-inner > div {*/
+  /*margin-left: 0;*/
+  /*width: 100%;*/
+  /*float: none;*/
+/*}*/
+
+.fg-edit-palette .form-group {
+  margin: 0px;
+}
+.fg-field-drag {
+  opacity: 0.8;
+}
+
+.fg-edit-palette legend {
+  position: relative;
+  cursor: pointer;
+}
+
+.fg-edit-palette legend .caret {
+  border-top: 4px solid #999;
+}
+
+.fg-edit-palette legend:hover {
+  color: #333;
+}
+
+.fg-edit-palette legend:hover .caret {
+  border-top: 4px solid #333;
+}
+
+.fg-edit-palette legend .dropdown-menu {
+  font-size: 14px;
+  line-height: 20px;
+  right: auto;
+  left: auto;
+}
+
+
+/*@media (min-width: 768px) and (max-width: 979px) {*/
+  /*.fg-edit-palette select,*/
+  /*.fg-edit-palette input,*/
+  /*.fg-edit-palette textarea {*/
+    /*width: 190px;*/
+  /*}*/
+
+  /*.fg-edit-palette input[type="checkbox"],*/
+  /*.fg-edit-palette input[type="button"],*/
+  /*.fg-edit-palette input[type="radio"] {*/
+    /*width: auto;*/
+  /*}*/
+/*}*/

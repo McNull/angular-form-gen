@@ -1,0 +1,46 @@
+
+<div class="container">
+
+  <div form-breadcrumb></div>
+  
+  <h1>{{ form.name }}</h1>
+
+  <div fg-tabs>
+
+    <div fg-tabs-pane="Data List">
+      <table class="table app-table-form-list">
+        <tr>
+          <th ng-repeat="field in form.schema.fields">{{ field.displayName || field.name }}</th>
+          <th>
+            <div class="btn-group btn-group-sm pull-right">
+              <button ng-click="addData()" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp;New</button>
+            </div>
+          </th>
+        </tr>
+
+        <tr ng-if="!dataEntries.length">
+          <td colspan="100%">
+            <div class="alert alert-info">
+              The form <strong>{{ form.name }}</strong> has no data entries. Click <a href="" ng-click="addData()">here</a> to add new data.
+            </div>
+          </td>
+        </tr>
+
+        <tr ng-repeat="dataEntry in dataEntries">
+          <td ng-repeat="field in form.schema.fields">{{ dataEntry[field.name] }}</td>
+          <td>
+            <div class="btn-group btn-group-sm pull-right">
+              <button ng-click="editData(dataEntry)" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</button>
+              <button ng-click="removeData(dataEntry)" type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>&nbsp;Delete</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div fg-tabs-pane="Debug">
+      <div jsonify="dataEntries"></div>
+    </div>
+  </div>
+
+</div>

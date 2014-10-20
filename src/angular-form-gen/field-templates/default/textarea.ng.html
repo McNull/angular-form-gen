@@ -1,0 +1,13 @@
+<textarea class="form-control"
+          fg-field-input
+          fg-field-focus="field.schema.focus"
+		      fg-placeholder="field.schema.placeholder"
+		      ng-model="form.data[field.schema.name]"
+		      id="{{ field.$_id }}"
+		      title="{{ field.schema.tooltip }}"
+		      tabindex="{{ tabIndex }}"
+		      ng-required="field.schema.validation.required"
+		      ng-minlength="{{ field.schema.validation.minlength }}"
+          ng-maxlength="{{ field.schema.validation.maxlength }}"
+          ng-pattern="/{{ field.schema.validation.pattern }}/">
+</textarea>

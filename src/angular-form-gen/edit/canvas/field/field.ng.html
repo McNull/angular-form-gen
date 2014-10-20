@@ -1,0 +1,47 @@
+<div class="fg-field fg-field-{{ field.type }} fg-edit-canvas-field"
+     ng-class="{ 'error': field.$_invalid, 'dragging': field.$_isDragging }"
+     dq-draggable="fg-edit-canvas"
+     dq-drag-disabled="dragEnabled === false"
+     dq-drag-begin="canvasCtrl.dragBeginCanvasField($index, field)"
+     dq-drag-end="canvasCtrl.dragEndCanvasField(field)">
+  <div class="fg-field-overlay"
+       ng-mouseenter="dragEnabled = true"
+       ng-mouseleave="dragEnabled = false">
+    <div class="fg-field-overlay-drag-top" dq-drag-enter="dragPlaceholder.index = $index"></div>
+    <div class="fg-field-overlay-drag-bottom" dq-drag-enter="dragPlaceholder.index = ($index + 1)"></div>
+    <div class="btn-toolbar btn-toolbar-right">
+      <button class="btn btn-default btn-xs" type="button"
+              ng-class="{ 'active': field.$_displayProperties }"
+              ng-click="field.$_displayProperties = !field.$_displayProperties"
+              title="Configure this field.">
+        <span class="glyphicon glyphicon-wrench"></span>
+      </button>
+      <button class="btn btn-default btn-xs" type="button"
+              ng-click="schemaCtrl.swapFields($index - 1, $index)"
+              ng-disabled="$index === 0"
+              title="Move up">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+      </button>
+      <button class="btn btn-default btn-xs" type="button"
+              ng-click="schemaCtrl.swapFields($index, $index + 1)"
+              ng-disabled="$index === schema.fields.length - 1"
+              title="Move down">
+        <span class="glyphicon glyphicon-arrow-down"></span>
+      </button>
+      <button class="btn btn-default btn-xs btn-danger" type="button" ng-click="schemaCtrl.removeField($index)"
+              title="Remove">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </div>
+  </div>
+  <div ng-form fg-form-required-filter>
+    <div fg-field="field"
+         fg-tab-index="-1"
+         fg-edit-mode="true"
+         fg-no-validation-summary="true"></div>
+  </div>
+
+  <div fg-edit-canvas-field-properties="field" class="fg-field-properties-container"
+       ng-class="{ visible: field.$_displayProperties }"></div>
+</div>
+

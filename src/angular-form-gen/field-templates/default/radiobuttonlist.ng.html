@@ -1,0 +1,11 @@
+<div class="radio" ng-repeat="option in field.schema.options">
+  <label title="{{ field.schema.tooltip }}">
+    <input fg-field-input
+           type="radio"
+           name="{{ field.schema.name }}[]"
+           tabindex="{{ tabIndex }}"
+           value="{{ option.value }}"
+           ng-model="form.data[field.schema.name]">
+    <span>{{option.text || option.value}}</span>
+  </label>
+</div>

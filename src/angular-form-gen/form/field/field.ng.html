@@ -1,0 +1,7 @@
+<div class="fg-field-inner form-group" ng-class="{ 'fg-field-required': fieldSchema.validation.required, 'has-error': form.state[field.name].$invalid }">
+	<label ng-if="!field.schema.nolabel" class="col-sm-3 control-label" for="{{ field.$_id }}">{{ fieldSchema.displayName }}</label>
+	<div class="col-sm-9" ng-class="{ 'col-sm-offset-3': field.schema.nolabel }">
+		<div ng-include="renderInfo.templateUrl"></div>
+		<div fg-validation-summary fg-validation-messages="fieldSchema.validation.messages" ng-if="!noValidationSummary"></div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+.fg-dropdown {
+  z-index: 50;
+}
+
+.fg-dropdown.open {
+  position: absolute;
+}
+
+.fg-dropdown .dropdown-menu {
+  position: static;
+  top: 0; left: 0;
+  float: none;
+  max-height: 250px;
+  overflow-y: auto;
+}

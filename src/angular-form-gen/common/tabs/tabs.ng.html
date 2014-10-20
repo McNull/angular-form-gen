@@ -1,0 +1,8 @@
+<div class="fg-tabs tabbable">
+  <ul class="nav nav-tabs">
+    <li ng-repeat="tab in tabs.items" ng-class="{ active: tab === tabs.active, disabled: tab.disabled }">
+      <a href="" ng-click="tabs.activate(tab)">{{ tab.title }}</a>
+    </li>
+  </ul>
+  <div class="tab-content" ng-transclude></div>
+</div>

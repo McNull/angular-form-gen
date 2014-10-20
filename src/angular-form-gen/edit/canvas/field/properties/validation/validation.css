@@ -1,0 +1,13 @@
+/*.fg-property-field-validation + .fg-property-field-validation,*/
+/*.fg-property-field-validation + div > .fg-property-field-validation {*/
+	/*border-top: 1px solid #cccccc;*/
+	/*padding-top: 10px;*/
+/*}*/
+
+.fg-property-field-validation {
+  padding: 5px 0;
+}
+
+.fg-property-field-validation div.checkbox {
+  padding-top: 0;
+}

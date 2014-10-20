@@ -1,0 +1,25 @@
+<div fg-tabs-pane="Properties">
+  <div
+      fg-property-field-common="{ fieldname: true, displayname: true, placeholder: true, tooltip: true, focus: true }"></div>
+  <!--
+
+    The field-value directive will re-render itself when certain validation values are modified.
+    This is needed because angular does not watch or observe the values of certain attributes and allows
+    an invalid initial value to be saved in the form schema.
+
+    Important: the transcluded form field must be name fieldValue!
+
+  -->
+  <div fg-property-field-value>
+    <input type="text"
+           class="form-control"
+           name="fieldValue"
+           ng-model="field.value"
+           ng-minlength="{{ field.validation.minlength }}"
+           ng-maxlength="{{ field.validation.maxlength }}"
+           ng-pattern="/{{ field.validation.pattern }}/"/>
+  </div>
+</div>
+<div fg-tabs-pane="Validation">
+  <div fg-property-field-validation="{ required: true, minlength: true, maxlength: true, pattern: true }"></div>
+</div>

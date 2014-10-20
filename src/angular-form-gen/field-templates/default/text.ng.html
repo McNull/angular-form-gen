@@ -1,0 +1,14 @@
+<input class="form-control"
+       fg-field-input
+       fg-field-focus="field.schema.focus"
+       type="text"
+       id="{{ field.$_id }}"
+       title="{{ field.schema.tooltip }}"
+       tabindex="{{ tabIndex }}"
+       placeholder="{{ field.schema.placeholder }}"
+       ng-model="form.data[field.schema.name]"
+       ng-required="field.schema.validation.required"
+       ng-minlength="{{ field.schema.validation.minlength }}"
+       ng-maxlength="{{ field.schema.validation.maxlength }}"
+       ng-pattern="/{{ field.schema.validation.pattern }}/"
+       ng-disabled="isDisabled(field.schema)">

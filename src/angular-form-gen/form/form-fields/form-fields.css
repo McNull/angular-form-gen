@@ -1,0 +1,17 @@
+
+
+
+.form .control-label, .fg-edit-palette .control-label {
+  float: none;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+}
+
+.form .fg-field-inner > div, .form .fg-property-field > div, .fg-edit-palette .fg-field-inner > div {
+  margin-left: 0;
+  width: 100%;
+  float: none;
+  padding: 0;
+}
+

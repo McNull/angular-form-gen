@@ -1,0 +1,30 @@
+<div class="fg-edit-canvas" ng-class="{ 'fg-edit-canvas-dragging': dragging }">
+    <!--<div class="form-horizontal">-->
+        <fieldset>
+            <legend>Canvas</legend>
+            <div class="fg-edit-canvas-area"
+                 dq-drag-area="fg-edit-canvas"
+                 dq-drag-enter="canvasCtrl.dragEnter()"
+                 dq-drag-leave="canvasCtrl.dragLeave()"
+                 dq-drop="canvasCtrl.drop()">
+                <div ng-if="!(schema.fields.length)">
+                    <div ng-if="!dragPlaceholder.visible" class="fg-edit-canvas-area-empty alert alert-info text-center">
+                        <p class="fg-edit-canvas-area-empty-x">X</p>
+                        <p class="lead hidden-phone"><strong>Drag</strong> one of the available <strong>templates</strong> from the
+                            <strong>palette</strong> onto this <strong>canvas</strong>.</p>
+                    </div>
+                </div>
+                <div ng-repeat="field in schema.fields">
+                  <!--ng-if="dragPlaceholder.visible && dragPlaceholder.index === $index"-->
+                    <div ng-class="{ 'fg-drag-placeholder-visible' : dragPlaceholder.visible && dragPlaceholder.index === $index }"
+                         class="fg-drag-placeholder"></div>
+                    <div fg-edit-canvas-field></div>
+                </div>
+                <!--<div class="fg-drag-placeholder">-->
+                <!--<div ng-if="dragPlaceholder.visible && dragPlaceholder.index == schema.fields.length" class="fg-drag-placeholder">-->
+                <div ng-class="{ 'fg-drag-placeholder-visible': dragPlaceholder.visible && dragPlaceholder.index == schema.fields.length }" class="fg-drag-placeholder">
+                </div>
+            </div>
+        </fieldset>
+    <!--</div>-->
+</div>

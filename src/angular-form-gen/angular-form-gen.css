@@ -1,0 +1,10 @@
+.fg-field-required .control-label:after {
+    content: ' *';
+    color: #888;
+}
+
+.fg-legend-extra {
+    color: #999;
+    font-weight: lighter;
+    display: inline-block;
+}
