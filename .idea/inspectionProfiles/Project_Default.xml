@@ -31,10 +31,13 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="3">
+          <list size="6">
             <item index="0" class="java.lang.String" itemvalue="seo-page-title" />
             <item index="1" class="java.lang.String" itemvalue="seo-page-description" />
             <item index="2" class="java.lang.String" itemvalue="markdown-src" />
+            <item index="3" class="java.lang.String" itemvalue="fg-form-data" />
+            <item index="4" class="java.lang.String" itemvalue="render-always" />
+            <item index="5" class="java.lang.String" itemvalue="fg-tabs-pane-disabled" />
           </list>
         </value>
       </option>

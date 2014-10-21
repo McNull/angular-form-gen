@@ -1,0 +1,51 @@
+<div ng-controller="MyController" class="container">
+
+  <div fg-tabs>
+
+    <div fg-tabs-pane="Form Input">
+
+      <form novalidate class="form-horizontal" name="exampleForm">
+
+        <fieldset>
+
+          <legend>
+            <div class="row">
+              <div class="col-sm-offset-3 col-sm-3">Example Form</div>
+            </div>
+          </legend>
+
+          <div class="row">
+            <div class="col-sm-offset-3 col-sm-9">
+              <p>This example form is rendered from an earlier created schema.</p>
+            </div>
+          </div>
+
+          <!-- Magic starts here -->
+
+          <div fg-form
+               fg-form-data="myFormData"
+               fg-schema="mySchema">
+          </div>
+
+          <!-- Magic ends here -->
+
+        </fieldset>
+
+        <div ng-include="'form-status.html'"></div>
+
+      </form>
+
+    </div>
+
+    <div fg-tabs-pane="Form Schema">
+      <div jsonify="mySchema"></div>
+    </div>
+
+    <div fg-tabs-pane="Documentation">
+      <div markdown markdown-src="'README.md'"></div>
+    </div>
+
+  </div>
+
+</div>
+  

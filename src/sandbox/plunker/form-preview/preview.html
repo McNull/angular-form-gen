@@ -1,0 +1,24 @@
+<form novalidate class="form-horizontal" name="previewForm" ng-init="myForm.$data = {}">
+
+  <fieldset>
+
+    <legend>
+      <div class="row">
+        <div class="col-sm-offset-3 col-sm-3">Example Form</div>
+      </div>
+    </legend>
+
+    <!-- Magic starts here -->
+
+    <div fg-form
+         fg-form-data="myForm.$data"
+         fg-schema="myForm.schema">
+    </div>
+
+    <!-- Magic ends here -->
+
+  </fieldset>
+
+  <div ng-include="'form-status.html'"></div>
+
+</form>

@@ -1,0 +1,31 @@
+<div ng-controller="MyController" class="container">
+
+  <h1>
+    Schema Editor with Form Preview
+  </h1>
+  <p>
+    Because of internet ...
+  </p>
+
+  <div fg-tabs class="needs-some-more-space">
+
+    <div fg-tabs-pane="Schema Editor">
+      <form class="form-horizontal" name="myForm.$state">
+        <div fg-edit
+             fg-schema="myForm.schema">
+        </div>
+      </form>
+    </div>
+
+    <div fg-tabs-pane="Form Preview" disabled="myForm.$state.$invalid">
+      <div ng-include="'preview.html'"></div>
+    </div>
+
+    <div fg-tabs-pane="Form Schema">
+      <div jsonify="myForm.schema"></div>
+    </div>
+
+  </div>
+
+</div>
+  

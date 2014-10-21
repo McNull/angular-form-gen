@@ -1,0 +1,18 @@
+<div class="form-group">
+  <label class="control-label col-sm-3">Form status</label>
+
+  <div class="col-sm-9">
+    <div class="form-control-static">
+      <span ng-if="previewForm.$invalid" class="text-danger">Invalid <span class="glyphicon glyphicon-thumbs-down"></span></span>
+      <span ng-if="previewForm.$valid" class="text-success">Valid <span class="glyphicon glyphicon-thumbs-up"></span></span>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="control-label col-sm-3">Form data</label>
+
+  <div class="col-sm-9">
+    <div jsonify="myForm.$data"></div>
+  </div>
+</div>
