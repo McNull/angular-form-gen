@@ -35,6 +35,18 @@ appCopy.dep.push('sitemap');
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
+gulp.task('sandbox-clean', [ 'modules', 'bower' ], function () {
+  return gulp.src(path.join(config.folders.dest, 'sandbox'))
+    .pipe(clean());
+});
+
+gulp.task('sandbox', [ 'sandbox-clean', 'modules', 'bower' ], function () {
+  return gulp.src(path.join(config.folders.src, 'sandbox/**/*'))
+    .pipe(gulp.dest(path.join(config.folders.dest, 'sandbox')));
+});
+
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -
+
 gulp.task('test-run', ['angular-form-gen'], function () {
 
   return gulp.src([

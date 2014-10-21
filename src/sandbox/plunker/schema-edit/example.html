@@ -1,0 +1,23 @@
+<div ng-controller="MyController" class="container">
+
+  <div fg-tabs>
+
+    <div fg-tabs-pane="Schema Editor">
+      <form class="form-horizontal">
+        <div fg-edit
+             fg-schema="myForm.schema">
+        </div>
+      </form>
+    </div>
+
+    <div fg-tabs-pane="Schema Result">
+      <div jsonify="myForm.schema"></div>
+    </div>
+
+    <div fg-tabs-pane="Documentation">
+      <div markdown markdown-src="'README.md'"></div>
+    </div>
+  </div>
+
+</div>
+  
