@@ -23,8 +23,9 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/lodash/dist/lodash.compat.js',
       path.join(buildConfig.folders.src, 'angular-form-gen/angular-form-gen.js'),
-//      path.join(buildConfig.folders.dest, 'angular-form-gen/angular-form-gen-templates.js'),
-      path.join(buildConfig.folders.src, 'angular-form-gen/**/*.js')
+      path.join(buildConfig.folders.src, 'angular-form-gen/**/*.js'),
+      path.join(buildConfig.folders.src, 'angular-seo/angular-seo.js'),
+      path.join(buildConfig.folders.src, 'angular-seo/**/*.js')
     ],
 
 

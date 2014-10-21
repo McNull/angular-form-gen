@@ -33,6 +33,10 @@ var config = {
       alias: 'githubLogo'
     },
     {
+      name: 'angular-seo',
+      alias: 'seo'
+    },
+    {
       name: 'app'
     }
   ],

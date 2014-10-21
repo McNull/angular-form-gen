@@ -1,0 +1,6 @@
+// ATTENTION!
+// DO NOT MODIFY THIS FILE BECAUSE IT WAS GENERATED AUTOMATICALLY
+// SO ALL YOUR CHANGES WILL BE LOST THE NEXT TIME THE FILE IS GENERATED
+angular.module('seo').run(['$templateCache', function($templateCache){
+
+}]);

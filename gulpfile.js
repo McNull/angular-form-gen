@@ -24,8 +24,14 @@ gulp.task('app-copy-readme', ['app-copy-clean'], function () {
     .pipe(gulp.dest(path.join(config.folders.dest, 'app')));
 });
 
+gulp.task('sitemap', [], function () {
+  return gulp.src(path.join(config.folders.src, 'sitemap.xml'))
+    .pipe(gulp.dest(config.folders.dest));
+});
+
 var appCopy = gulp.tasks['app-copy'];
 appCopy.dep.push('app-copy-readme');
+appCopy.dep.push('sitemap');
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
 

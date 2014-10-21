@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Dynamic form schema generator for AngularJS.">
+  <meta name="description" content="{{ pageState.description }}">
+  <meta name="keywords" content="{{ pageState.keywords }}">
   <link rel="shortcut icon" href="app/assets/favicon.ico">
 
-  <title><%- pkg.name %></title>
+  <title ng-bind="pageState.title"><%- pkg.name %></title>
 
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/angular-inform/dist/angular-inform.min.css">

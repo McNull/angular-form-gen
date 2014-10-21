@@ -1,5 +1,6 @@
 var app = angular.module('app',
   [
+    'seo',
     'ngSanitize',
     'ngRoute',
     'ngLogo',
@@ -12,12 +13,14 @@ var app = angular.module('app',
     'markdown'
   ]);
 
-app.controller('MainCtrl', function ($scope, appMenuItems) {
+app.config(function(seoDefaults) {
+  seoDefaults.title = 'angular-form-gen';
+  seoDefaults.description = 'Dynamic form schema generator for AngularJS.';
+  seoDefaults.keywords = 'angularjs, angular, form, schema, generator';
+});
+
+app.controller('MainCtrl', function ($scope, appMenuItems, seoPageState) {
+  $scope.pageState = seoPageState;
   $scope.menuItems = appMenuItems;
 });
 
-app.config(function ($locationProvider) {
-
-  $locationProvider.hashPrefix('!');
-
-});
