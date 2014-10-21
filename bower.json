@@ -1,6 +1,16 @@
 {
   "name": "angular-form-gen",
   "description": "Dynamic form schema generator for AngularJS",
+  "main": [
+    "dist/angular-form-gen.js",
+    "dist/angular-form-gen.css"
+  ],
+  "license": "MIT",
+  "homepage": "http://angular-form-gen.nullest.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/McNull/angular-form-gen.git"
+  },
   "keywords": [
     "angularjs",
     "angular",
@@ -10,12 +20,11 @@
   ],
   "version": "0.0.1",
   "authors": [
-    "Null McNull <no@spam.org>"
+    "Null McNull <noreplies@hotmail.com> https://github.com/McNull"
   ],
   "moduleType": [
     "globals"
   ],
-  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
