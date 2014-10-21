@@ -19,7 +19,7 @@ require('./gulp-tasks/modules-task.js')(gulp);
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
-gulp.task('app-copy-readme', ['app-copy-clean'], function() {
+gulp.task('app-copy-readme', ['app-copy-clean'], function () {
   return gulp.src('README.md')
     .pipe(gulp.dest(path.join(config.folders.dest, 'app')));
 });
@@ -78,8 +78,12 @@ gulp.task('dist-clean', function () {
 gulp.task('dist', ['dist-clean', 'angular-form-gen', 'test-run'], function () {
 
   var destGlob = path.join(config.folders.dest, 'angular-form-gen/**/*');
-  return gulp.src([ destGlob, 'README.md', 'LICENSE', '!**/angular-form-gen-templates.js' ])
-    .pipe(gulp.dest('dist'));
+  return gulp.src([
+    destGlob
+    //'README.md',
+    // 'LICENSE',
+    // '!**/angular-form-gen-templates.js'
+  ]).pipe(gulp.dest('dist'));
 
 });
 

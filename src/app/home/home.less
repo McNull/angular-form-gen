@@ -1,0 +1,67 @@
+@github-logo-anim-speed: 0.2s ease-in;
+
+.app-header {
+  overflow: hidden;
+
+  .github {
+
+    position: relative;
+
+    .github-logo {
+
+      transition: transform @github-logo-anim-speed;
+
+      position: absolute;
+      right: 0px;
+      left: 0px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 200px;
+      width: 200px;
+      //      top: -70px;
+
+      svg path {
+        fill: #333;
+        transition: fill @github-logo-anim-speed;
+      }
+
+      &:hover svg path {
+        fill: #2A6496;
+      }
+    }
+
+    .github-icon {
+
+      transition: transform @github-logo-anim-speed;
+
+      > svg {
+
+        width: 60px;
+        height: 60px;
+
+        > path {
+          transition: all @github-logo-anim-speed;
+          fill: #333;
+          stroke: transparent;
+        }
+      }
+    }
+
+    &:hover {
+      .github-icon {
+        transform: scale(4);
+
+        > svg > path {
+          fill: #fff;
+          opacity: 0.4;
+        }
+      }
+
+      .github-logo {
+        transform: translate(0, -140px);
+      }
+    }
+
+  }
+
+}

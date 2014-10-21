@@ -27,16 +27,17 @@ module.exports = function(gulp, module) {
     };
   });
 
-  module.task('templates-clean', function() {
+  module.task('templates-clean', function(cb) {
 
-    var outputFiles = [
-      path.join(module.folders.dest, module.name + '-templates.js')
-    ];
-
-    var clean = require('gulp-rimraf');
-
-    return gulp.src(outputFiles, { read: false })
-      .pipe(clean({ force: true }));
+    cb();
+//    var outputFiles = [
+//      path.join(module.folders.dest, module.name + '-templates.js')
+//    ];
+//
+//    var clean = require('gulp-rimraf');
+//
+//    return gulp.src(outputFiles, { read: false })
+//      .pipe(clean({ force: true }));
 
   });
 
@@ -72,13 +73,13 @@ module.exports = function(gulp, module) {
       }))
       .pipe(modify(function(contents) {
         return [
-          '// Automatically generated.',
-          '// This file is already embedded in your main javascript output, there\'s no need to include this file',
-          '// manually in the index.html. This file is only here for your debugging pleasures.',
+          '// ATTENTION!',
+          '// DO NOT MODIFY THIS FILE BECAUSE IT WAS GENERATED AUTOMATICALLY',
+          '// SO ALL YOUR CHANGES WILL BE LOST THE NEXT TIME THE FILE IS GENERATED',
           ''
         ].join('\n') + contents;
       }))
-      .pipe(gulp.dest(module.folders.dest));
+      .pipe(gulp.dest(module.folders.src));
 
   });
 

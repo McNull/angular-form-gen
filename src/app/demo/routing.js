@@ -21,7 +21,7 @@ app.route.forms = [
         return Form.query();
       }]
     },
-    label: 'Demostration'
+    label: 'Demonstration'
   },
   {
     url: '/demo/:id/edit',

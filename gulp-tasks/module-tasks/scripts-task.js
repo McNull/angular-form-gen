@@ -21,7 +21,7 @@ module.exports = function (gulp, module) {
     var inputFiles = [
       path.join(module.folders.src, module.name + '.js'),
       path.join(module.folders.src, '**/*.js'),
-//      path.join(module.folders.dest, module.name + '-templates.js'),
+//      path.join(module.folders.src, module.name + '-templates.js'),
       '!**/*.test.js',
       '!**/*.ignore.js'
     ];
@@ -55,7 +55,7 @@ module.exports = function (gulp, module) {
     var inputFiles = [
       path.join(module.folders.src, module.name + '.js'),
       path.join(module.folders.src, '**/*.js'),
-      path.join(module.folders.dest, module.name + '-templates.js'),
+      path.join(module.folders.src, module.name + '-templates.js'),
       '!**/*.test.js',
       '!**/*.ignore.js'
     ];

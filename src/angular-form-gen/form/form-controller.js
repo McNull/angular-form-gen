@@ -39,10 +39,10 @@ fg.controller('fgFormController', function($scope, $parse) {
     return self.model;
   };
 
-  this.clearFocusOnFields = function() {
-    angular.forEach(self.model.schema.fields, function(field) {
-      field.focus = false;
-    });
-  };
+//  this.clearFocusOnFields = function() {
+//    angular.forEach(self.model.schema.fields, function(field) {
+//      field.focus = false;
+//    });
+//  };
 
 });

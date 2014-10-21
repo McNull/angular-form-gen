@@ -11,6 +11,6 @@ app.constant('appMenuItems', [{
   name: 'Home',
   url: '/'
 }, {
-  name: 'Demostration',
+  name: 'Demonstration',
   url: '/demo'
 }]);

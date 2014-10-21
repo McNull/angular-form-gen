@@ -11,7 +11,7 @@ app.directive('formBreadcrumb', function ($route) {
       });
 
       nodes.push({
-        path: '/demo', name: 'Demostration'
+        path: '/demo', name: 'Demonstration'
       });
 
       var cl = $route.current.locals;
