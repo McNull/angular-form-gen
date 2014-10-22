@@ -15,6 +15,7 @@ A full blown demonstration is available on [angular-form-gen.nullest.com](http:/
 * [Simple Schema Editor](http://plnkr.co/edit/sS7wXK?p=info)
 * [Simple Schema Renderer](http://plnkr.co/edit/8d7TPg?p=info)
 * [Form Schema Editor with Preview](http://plnkr.co/edit/8erjmp?p=info)
+* [Wizard Example](http://plnkr.co/edit/RQO8cr)
 
 ## Dependencies
 
