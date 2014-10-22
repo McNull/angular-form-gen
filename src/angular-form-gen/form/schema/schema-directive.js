@@ -14,18 +14,6 @@ fg.directive('fgSchema', function(fgSchemaLinkFn) {
       schemaCtrl.model(value);
     });
 
-//    var getModel = $parse($attrs.fgSchema);
-//    var setModel = getModel.assign;
-//
-//    var model = getModel($scope);
-//
-//    schemaCtrl.model(model);
-//
-//    $scope.$watch(function() {
-//      return schemaCtrl.model();
-//    }, function(value) {
-//      setModel($scope, value);
-//    });
   };
 });
 

@@ -7,3 +7,42 @@ body {
 html {
   overflow-y: scroll;
 }
+
+.needs-some-more-space {
+  margin-top: 30px;
+}
+
+.form-group .jsonify {
+  margin-top: 0;
+}
+
+.my-wizard-page-slide, .my-wizard .control-label {
+  transition: all 0s;
+  opacity: 0;
+}
+
+.my-wizard-page-slide-left {
+  margin-left: 200px;
+}
+
+.my-wizard .control-label {
+  transform: translateX(-100px);
+}
+
+.my-wizard-page-slide-right {
+  margin-left: -200px;
+}
+
+.my-wizard-page-active .my-wizard-page-slide, .my-wizard-page-active .control-label {
+  transition: all 1s;
+  opacity: 1;
+}
+
+.my-wizard-page-active .my-wizard-page-slide-left,
+.my-wizard-page-active .my-wizard-page-slide-right {
+  margin-left: 0px;
+}
+
+.my-wizard-page-active .control-label {
+  transform: translateX(0px);
+}

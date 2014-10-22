@@ -1,6 +1,14 @@
 <div ng-controller="MyController" class="container">
 
-  <div my-wizard my-wizard-pages="myWizardPages" my-wizard-data="myWizardData"></div>
+  <div markdown markdown-src="'README.md'" class="text-center"></div>
+
+  <div my-wizard
+       my-wizard-page-index="myWizard.pageIndex"
+       my-wizard-pages="myWizard.pages"
+       my-wizard-data="myWizard.data"
+       my-wizard-on-next="onNext(data)"
+       my-wizard-on-finish="onFinish(data)"
+       class="needs-some-more-space"></div>
 
 </div>
   
