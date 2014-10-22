@@ -1,0 +1,33 @@
+
+
+<div jsonify="currentPage"></div>
+<form novalidate class="form-horizontal" name="wizard.form">
+
+  <fieldset>
+
+    <legend>
+      <div class="row">
+        <div class="col-sm-offset-3 col-sm-3">{{ currentPage.name }}</div>
+      </div>
+    </legend>
+
+    <div class="row">
+      <div class="col-sm-offset-3 col-sm-9">
+        <p>{{ currentPage.description }}</p>
+      </div>
+    </div>
+
+    <!-- Magic starts here -->
+
+    <div fg-form
+         fg-form-data="data"
+         fg-schema="currentPage.schema">
+    </div>
+
+    <!-- Magic ends here -->
+
+  </fieldset>
+
+</form>
+
+    

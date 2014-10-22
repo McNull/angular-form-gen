@@ -6,22 +6,26 @@ fg.directive('fgSchema', function(fgSchemaLinkFn) {
     link: fgSchemaLinkFn
   };
 
-}).factory('fgSchemaLinkFn' , function($parse) {
+}).factory('fgSchemaLinkFn' , function() {
   return function($scope, $element, $attrs, ctrls) {
     var schemaCtrl = ctrls[0];
 
-    var getModel = $parse($attrs.fgSchema);
-    var setModel = getModel.assign;
-
-    var model = getModel($scope);
-
-    schemaCtrl.model(model);
-
-    $scope.$watch(function() {
-      return schemaCtrl.model();
-    }, function(value) {
-      setModel($scope, value);
+    $scope.$watch($attrs.fgSchema, function(value) {
+      schemaCtrl.model(value);
     });
+
+//    var getModel = $parse($attrs.fgSchema);
+//    var setModel = getModel.assign;
+//
+//    var model = getModel($scope);
+//
+//    schemaCtrl.model(model);
+//
+//    $scope.$watch(function() {
+//      return schemaCtrl.model();
+//    }, function(value) {
+//      setModel($scope, value);
+//    });
   };
 });
 
