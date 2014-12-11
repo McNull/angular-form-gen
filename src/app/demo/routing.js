@@ -15,7 +15,7 @@ app.route.forms = [
   {
     url: '/demo',
     controller: 'FormListCtrl',
-    templateUrl: '/app/demo/index.html',
+    templateUrl: 'app/demo/index.html',
     resolve: {
       forms: ['Form', function(Form) {
         return Form.query();
@@ -25,7 +25,7 @@ app.route.forms = [
   },
   {
     url: '/demo/:id/edit',
-    templateUrl: '/app/demo/edit/edit.html',
+    templateUrl: 'app/demo/edit/edit.html',
     controller: 'FormEditCtrl',
     resolve: {
       form: getFormById
@@ -34,7 +34,7 @@ app.route.forms = [
   },
   {
     url: '/demo/:id/data/:dataId/edit',
-    templateUrl: '/app/demo/data/edit/data-edit.html',
+    templateUrl: 'app/demo/data/edit/data-edit.html',
     controller: 'FormDataEditCtrl',
     resolve: {
       form: getFormById,
@@ -44,7 +44,7 @@ app.route.forms = [
   },
   {
     url: '/demo/:id',
-    templateUrl: '/app/demo/data/data-list.html',
+    templateUrl: 'app/demo/data/data-list.html',
     controller: 'FormDataListCtrl',
     resolve: {
       form: getFormById,
