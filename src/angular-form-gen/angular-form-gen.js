@@ -122,7 +122,7 @@ fg.config(function ($provide) {
         pattern: function (nameOrObject, pattern) {
 
           if (angular.isString(nameOrObject)) {
-            config.validation.patterns[name] = pattern;
+            config.validation.patterns[nameOrObject] = pattern;
           } else {
             angular.extend(config.validation.patterns, nameOrObject);
           }

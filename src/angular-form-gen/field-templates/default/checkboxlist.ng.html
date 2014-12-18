@@ -1,10 +1,11 @@
-<div class="checkbox" ng-repeat="option in field.schema.options">
+<div class="checkbox" ng-repeat="option in field.schema.options" ng-model="form.data[field.schema.name]"
+     fg-required-checkboxlist>
   <label title="{{ field.schema.tooltip }}">
-      <input fg-field-input
-             type="checkbox"
-             tabindex="{{ tabIndex }}"
-             name="{{ field.schema.name }}[]" value="{{ option.value }}"
-             ng-model="form.data[field.schema.name][option.value]">
-      <span>{{option.text || option.value}}</span>
+    <input fg-field-input
+           type="checkbox"
+           tabindex="{{ tabIndex }}"
+           name="{{ field.schema.name }}[]" value="{{ option.value }}"
+           ng-model="form.data[field.schema.name][option.value]">
+    <span>{{option.text || option.value}}</span>
   </label>
 </div>

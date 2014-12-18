@@ -70,15 +70,15 @@ app.factory('Form', function (fakeHttpResolve, formData) {
 app.factory('formData', function () {
   var forms = [
     {
-
-      "name": "Radiobutton list",
+      "name": "Required option fields",
       "layout": "form-horizontal",
+      "description": "An example schema containing required option fields.",
       "schema": {
         "fields": [
           {
-            "type": "radiobuttonlist",
-            "name": "field6145",
-            "displayName": "Radiobutton List",
+            "type": "checkboxlist",
+            "name": "checkboxes",
+            "displayName": "Checkboxes",
             "options": [
               {
                 "value": "1",
@@ -93,14 +93,64 @@ app.factory('formData', function () {
                 "text": "Option 3"
               }
             ],
-            "value": "1"
+            "value": {
+              "1": false,
+              "2": false
+            },
+            "validation": {
+              "messages": {},
+              "required": true
+            }
+          },
+          {
+            "type": "radiobuttonlist",
+            "name": "radiobuttons",
+            "displayName": "Radiobuttons",
+            "options": [
+              {
+                "value": "1",
+                "text": "Option 1"
+              },
+              {
+                "value": "2",
+                "text": "Option 2"
+              },
+              {
+                "value": "3",
+                "text": "Option 3"
+              }
+            ],
+            "validation": {
+              "messages": {},
+              "required": true
+            }
+          },
+          {
+            "type": "selectlist",
+            "name": "select",
+            "displayName": "Select",
+            "options": [
+              {
+                "value": "1",
+                "text": "Option 1"
+              },
+              {
+                "value": "2",
+                "text": "Option 2"
+              },
+              {
+                "value": "3",
+                "text": "Option 3"
+              }
+            ],
+            "validation": {
+              "messages": {},
+              "required": true
+            }
           }
         ]
       }
-
-
     },
-
     {
       "schema": {
         "name": "All Fields",
