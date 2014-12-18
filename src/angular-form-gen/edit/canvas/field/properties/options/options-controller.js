@@ -37,6 +37,17 @@ fg.controller('fgPropertyFieldOptionsController', function($scope) {
     }
   }
 
+  this.toggleOption = function(optionValue) {
+
+    // Only used in multiple === false
+    // Allow the user to deselect an option from the list
+
+    if(optionValue === $scope.field.value) {
+      $scope.field.value = undefined;
+    }
+
+  };
+
   this.addOption = function() {
 
     if (!$scope.field.options) {

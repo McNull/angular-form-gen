@@ -70,6 +70,38 @@ app.factory('Form', function (fakeHttpResolve, formData) {
 app.factory('formData', function () {
   var forms = [
     {
+
+      "name": "Radiobutton list",
+      "layout": "form-horizontal",
+      "schema": {
+        "fields": [
+          {
+            "type": "radiobuttonlist",
+            "name": "field6145",
+            "displayName": "Radiobutton List",
+            "options": [
+              {
+                "value": "1",
+                "text": "Option 1"
+              },
+              {
+                "value": "2",
+                "text": "Option 2"
+              },
+              {
+                "value": "3",
+                "text": "Option 3"
+              }
+            ],
+            "value": "1"
+          }
+        ]
+      }
+
+
+    },
+
+    {
       "schema": {
         "name": "All Fields",
         "fields": [

@@ -2,6 +2,12 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{angular-form-gen node_modules}" />
+    <file url="file://$PROJECT_DIR$/build-config.js" libraries="{Node.js Globals, Node.js v0.10.31 Core Modules}" />
+    <file url="file://$PROJECT_DIR$/gulp-tasks" libraries="{Node.js Globals, Node.js v0.10.31 Core Modules}" />
+    <file url="file://$PROJECT_DIR$/gulpfile.js" libraries="{Node.js Globals, Node.js v0.10.31 Core Modules}" />
+    <file url="file://$PROJECT_DIR$/karma.conf.js" libraries="{Node.js Globals, Node.js v0.10.31 Core Modules}" />
+    <file url="PROJECT" libraries="{Node.js v0.10.31 Core Modules}" />
+    <excludedPredefinedLibrary name="HTML" />
+    <excludedPredefinedLibrary name="HTML5 / EcmaScript 5" />
   </component>
 </project>
-

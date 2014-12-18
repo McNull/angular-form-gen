@@ -20,7 +20,7 @@
   <tbody>
   <tr ng-form="fieldOptionForm" ng-repeat="option in field.options" ng-class="{ 'error': fieldOptionForm.$invalid }">
     <td ng-if="multiple === false">
-      <input type="radio" name="{{ field.name }}selection[]" value="{{ option.value }}" ng-model="field.value"/>
+      <input type="radio" name="{{ field.name }}selection[]" value="{{ option.value }}" ng-model="field.value" ng-click="optionsCtrl.toggleOption(option.value)"/>
     </td>
     <td ng-if="multiple === true">
       <input type="checkbox" name="{{ field.name }}selection[]" value="{{ option.value }}"
