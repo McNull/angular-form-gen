@@ -4,6 +4,7 @@
 
   <div fg-property-field-value>
     <input fg-input-number
+           fg-update-pattern
            class="form-control"
            type="text"
            name="fieldValue"
@@ -12,7 +13,7 @@
            max="{{ field.validation.max }}"
            ng-minlength="{{ field.validation.minlength }}"
            ng-maxlength="{{ field.validation.maxlength }}"
-           ng-pattern="/{{ field.validation.pattern }}/"/>
+           ng-pattern="field.validation.pattern"/>
   </div>
 </div>
 

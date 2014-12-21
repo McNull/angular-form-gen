@@ -2,14 +2,14 @@ fg.directive('fgBindExpression', function ($interpolate) {
 
   function buildWatchExpression(interpolateFn) {
     var sb = [];
-    var parts = interpolateFn.parts;
-    var ii = parts.length;
+    var expressions = interpolateFn.expressions;
+    var ii = expressions.length;
 
     while (ii--) {
-      var part = parts[ii];
+      var expression = expressions[ii];
 
-      if (part.exp && !part.exp.match(/^\s*$/)) {
-        sb.push(part.exp);
+      if (expression.exp && !expression.exp.match(/^\s*$/)) {
+        sb.push(expression.exp);
       }
     }
 
