@@ -9,7 +9,7 @@
   "homepage": "http://angular-form-gen.nullest.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/McNull/angular-form-gen.git"
+    "url": "git://github.com/SSchaaf/angular-form-gen.git"
   },
   "keywords": [
     "angularjs",
