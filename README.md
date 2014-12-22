@@ -1,6 +1,6 @@
 # angular-form-gen
 
-Drag and drop dynamic bootstrap forms with angular.
+Drag and drop dynamic bootstrap forms with angular. A
 
 ## Description
 
@@ -20,7 +20,7 @@ A full blown demonstration is available on [angular-form-gen.nullest.com](http:/
 ## Dependencies
 
 This module was build using _AngularJS_ ~1.3.8 and _Bootstrap (CSS)_ ~3.2.0.
-Requires Angular v.1.3. 
+Requires Angular v.1.3.
 With version 1.2 will fail due changes in $interpolate and ng-pattern.
 * [Angular Doc - Migrating from 1.2 to 1.3 ](https://docs.angularjs.org/guide/migration)
 
