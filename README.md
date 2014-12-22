@@ -4,7 +4,7 @@ Drag and drop dynamic bootstrap forms with angular.
 
 ## Description
 
-An extendable _angular_ module that allows you and/or your web users to design and render _bootstrap_ forms. 
+An extendable _angular_ module that allows you and/or your web users to design and render _bootstrap_ forms.
 Field components can be dragged from a _pallette_ onto a _canvas_ where details like _validation_ can be fine-tuned further.
 Developers can extend the editor by adding _custom field components_ and _validation patterns_.
 
@@ -19,7 +19,10 @@ A full blown demonstration is available on [angular-form-gen.nullest.com](http:/
 
 ## Dependencies
 
-This module was build using _AngularJS_ ~1.2.21 and _Bootstrap (CSS)_ ~3.2.0.
+This module was build using _AngularJS_ ~1.3.8 and _Bootstrap (CSS)_ ~3.2.0.
+Requires Angular v.1.3.
+With version 1.2 will fail due changes in $interpolate and ng-pattern.
+* [Angular Doc - Migrating from 1.2 to 1.3 ](https://docs.angularjs.org/guide/migration)
 
 ## Installation
 
@@ -55,10 +58,10 @@ The schema editor can be embedded in any `form` by marking a child element with 
 ```
 <!-- Create normal bootstrap form element -->
 <form class="form-horizontal">
-  
+
   <!-- Embed the schema editor on the form -->
   <div fg-edit fg-schema="myForm.schema"></div>
-  
+
 </form>
 ```
 
@@ -128,20 +131,20 @@ Any parent `form` or `ng-form` state will be updated accordantly if any of the v
 
 ```
 <form novalidate class="form" name="myForm">
-  
+
   <div fg-form
        fg-form-data="myFormData"
        fg-schema="mySchema">
   </div>
-  
+
   <!-- set the disabled class on the submit button when the form state is invalid -->
-  
+
   <button type="submit"
           class="btn btn-primary"
           ng-class="{ disabled: myForm.$invalid }">
     Submit
   </button>
-  
+
 </form>
 ```
 

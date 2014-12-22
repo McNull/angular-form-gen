@@ -28,7 +28,7 @@ fg.directive('fgEditCanvasFieldProperties', function (fgUtils) {
       post: function ($scope) {
 
         $scope.$watch('fieldPropertiesForm.$invalid', function (newValue) {
-          $scope.field.$_invalid = newValue;
+          $scope.field.$$_invalid = newValue;
         });
 
         $scope.renderInfo = fgUtils.getRenderInfo($scope.field);
