@@ -1431,43 +1431,6 @@ fg.directive('fgUniqueFieldName', function () {
   };
 });
 
-function fgToJsonReplacer(key, value) {
- var val = value;
-
- if (typeof key === 'string' && key.charAt(0) === '$') {
-   val = undefined;
- }
- return val;
-}
-
-fg.filter('j$on',function () {
-  return function (input, displayHidden) {
-
-    if(displayHidden)
-      return JSON.stringify(input || {}, null, '  ');
-
-    //https://github.com/angular/angular.js/commit/c054288c9722875e3595e6e6162193e0fb67a251#diff-1d54c5f722aebc473dbe96f836ddf974R995
-    //return angular.toJson(input || {}, true);
-    return JSON.stringify(input || {}, fgToJsonReplacer, '  ');
-  };
-}).directive('jsonify', ["$window", "$filter", function ($window, $filter) {
-    return {
-      templateUrl: 'angular-form-gen/common/jsonify/jsonify.ng.html',
-      replace: true,
-      scope: {
-        jsonify: "=",
-        displayHidden: "@jsonifyDisplayHidden"
-      },
-      link: function($scope, $element, $attrs, ctrls) {
-        $scope.expression = $attrs.jsonify;
-
-        $scope.copy = function() {
-          $window.prompt ("Copy to clipboard: Ctrl+C, Enter", $filter('j$on')($scope.jsonify, $scope.displayHidden));
-        };
-      }
-    };
-  }]);
-
 fg.controller('fgTabsController', function () {
 
   this.items = [];
@@ -1542,6 +1505,43 @@ fg.directive('fgTabsPane', ["fgTabsPaneLinkFn", function(fgTabsPaneLinkFn) {
     $scope.tabs.add($scope.pane);
   };
 });
+
+function fgToJsonReplacer(key, value) {
+ var val = value;
+
+ if (typeof key === 'string' && key.charAt(0) === '$') {
+   val = undefined;
+ }
+ return val;
+}
+
+fg.filter('j$on',function () {
+  return function (input, displayHidden) {
+
+    if(displayHidden)
+      return JSON.stringify(input || {}, null, '  ');
+
+    //https://github.com/angular/angular.js/commit/c054288c9722875e3595e6e6162193e0fb67a251#diff-1d54c5f722aebc473dbe96f836ddf974R995
+    //return angular.toJson(input || {}, true);
+    return JSON.stringify(input || {}, fgToJsonReplacer, '  ');
+  };
+}).directive('jsonify', ["$window", "$filter", function ($window, $filter) {
+    return {
+      templateUrl: 'angular-form-gen/common/jsonify/jsonify.ng.html',
+      replace: true,
+      scope: {
+        jsonify: "=",
+        displayHidden: "@jsonifyDisplayHidden"
+      },
+      link: function($scope, $element, $attrs, ctrls) {
+        $scope.expression = $attrs.jsonify;
+
+        $scope.copy = function() {
+          $window.prompt ("Copy to clipboard: Ctrl+C, Enter", $filter('j$on')($scope.jsonify, $scope.displayHidden));
+        };
+      }
+    };
+  }]);
 
 fg.controller('fgEditCanvasController', ["$scope", "dqUtils", "$timeout", "fgUtils", function ($scope, dqUtils, $timeout, fgUtils) {
 
@@ -1672,92 +1672,6 @@ fg.directive('fgEditPalette',function () {
     }
   };
 });
-fg.directive('fgFormFields', function() {
-
-  return {
-    require: ['^?fgForm'],
-    restrict: 'AE',
-    templateUrl: 'angular-form-gen/form/form-fields/form-fields.ng.html',
-    scope: {},
-    link: function($scope, $element, $attrs, ctrls) {
-
-      var fgForm = ctrls[0];
-
-      $scope.$watch(function() {
-        return fgForm.model;
-      }, function(value) {
-        $scope.form = value;
-      });
-    }
-  };
-
-});
-fg.controller('fgSchemaController', ["$scope", "fgUtils", function($scope, fgUtils) {
-
-  var _model;
-
-  this.model = function(value) {
-    if(value !== undefined) {
-      _model = value;
-
-      if(!angular.isArray(value.fields)) {
-        value.fields = [];
-      }
-    }
-    
-    return _model;
-  };
-
-  this.addField = function(field, index) {
-
-    var copy = fgUtils.copyField(field);
-
-    index = index === undefined ? _model.fields.length : index;
-    _model.fields.splice(index, 0, copy);
-
-  };
-
-  this.removeField = function(index) {
-    _model.fields.splice(index, 1);
-  };
-
-  this.swapFields = function(idx1, idx2) {
-    if (idx1 <= -1 || idx2 <= -1 || idx1 >= _model.fields.length || idx2 >= _model.fields.length) {
-      return;
-    }
-
-    _model.fields[idx1] = _model.fields.splice(idx2, 1, _model.fields[idx1])[0];
-  };
-
-  this.moveField = function(fromIdx, toIdx) {
-    if (fromIdx >= 0 && toIdx <= _model.fields.length && fromIdx !== toIdx) {
-      var field = _model.fields.splice(fromIdx, 1)[0];
-      if (toIdx > fromIdx)--toIdx;
-      _model.fields.splice(toIdx, 0, field);
-    }
-  };
-
-}]);
-fg.directive('fgSchema', ["fgSchemaLinkFn", function(fgSchemaLinkFn) {
-
-  return {
-    require: ['fgSchema'],
-    controller: 'fgSchemaController',
-    link: fgSchemaLinkFn
-  };
-
-}]).factory('fgSchemaLinkFn' , function() {
-  return function($scope, $element, $attrs, ctrls) {
-    var schemaCtrl = ctrls[0];
-
-    $scope.$watch($attrs.fgSchema, function(value) {
-      schemaCtrl.model(value);
-    });
-
-  };
-});
-
-
 fg.controller('fgFieldController', ["$scope", "fgUtils", function($scope, fgUtils) {
 
   var self = this;
@@ -1986,6 +1900,92 @@ fg.directive('fgFieldInput', ["fgFieldInputLinkFn", function (fgFieldInputLinkFn
     }
   }
 });
+
+fg.directive('fgFormFields', function() {
+
+  return {
+    require: ['^?fgForm'],
+    restrict: 'AE',
+    templateUrl: 'angular-form-gen/form/form-fields/form-fields.ng.html',
+    scope: {},
+    link: function($scope, $element, $attrs, ctrls) {
+
+      var fgForm = ctrls[0];
+
+      $scope.$watch(function() {
+        return fgForm.model;
+      }, function(value) {
+        $scope.form = value;
+      });
+    }
+  };
+
+});
+fg.controller('fgSchemaController', ["$scope", "fgUtils", function($scope, fgUtils) {
+
+  var _model;
+
+  this.model = function(value) {
+    if(value !== undefined) {
+      _model = value;
+
+      if(!angular.isArray(value.fields)) {
+        value.fields = [];
+      }
+    }
+    
+    return _model;
+  };
+
+  this.addField = function(field, index) {
+
+    var copy = fgUtils.copyField(field);
+
+    index = index === undefined ? _model.fields.length : index;
+    _model.fields.splice(index, 0, copy);
+
+  };
+
+  this.removeField = function(index) {
+    _model.fields.splice(index, 1);
+  };
+
+  this.swapFields = function(idx1, idx2) {
+    if (idx1 <= -1 || idx2 <= -1 || idx1 >= _model.fields.length || idx2 >= _model.fields.length) {
+      return;
+    }
+
+    _model.fields[idx1] = _model.fields.splice(idx2, 1, _model.fields[idx1])[0];
+  };
+
+  this.moveField = function(fromIdx, toIdx) {
+    if (fromIdx >= 0 && toIdx <= _model.fields.length && fromIdx !== toIdx) {
+      var field = _model.fields.splice(fromIdx, 1)[0];
+      if (toIdx > fromIdx)--toIdx;
+      _model.fields.splice(toIdx, 0, field);
+    }
+  };
+
+}]);
+fg.directive('fgSchema', ["fgSchemaLinkFn", function(fgSchemaLinkFn) {
+
+  return {
+    require: ['fgSchema'],
+    controller: 'fgSchemaController',
+    link: fgSchemaLinkFn
+  };
+
+}]).factory('fgSchemaLinkFn' , function() {
+  return function($scope, $element, $attrs, ctrls) {
+    var schemaCtrl = ctrls[0];
+
+    $scope.$watch($attrs.fgSchema, function(value) {
+      schemaCtrl.model(value);
+    });
+
+  };
+});
+
 
 fg.directive('fgEditCanvasField', function() {
 
