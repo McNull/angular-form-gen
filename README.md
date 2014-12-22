@@ -1,6 +1,6 @@
 # angular-form-gen
 
-Drag and drop dynamic bootstrap forms with angular. A
+Drag and drop dynamic bootstrap forms with angular.
 
 ## Description
 
