@@ -69,7 +69,7 @@ describe('fg-edit-directive', function () {
     // Assert
 
     expect($scope.myNoneExistingSchema).toBeDefined();
-    
+
   });
 
   it('should set the schema model on the controller', function() {
@@ -91,7 +91,7 @@ describe('fg-edit-directive', function () {
 
     expect($scope.schemaCtrl.model()).toBe($scope.mySchema);
   });
- 
+
   describe('$scope.actionsEnabled', function () {
 
     it('should default to true if no value is provided', function () {
