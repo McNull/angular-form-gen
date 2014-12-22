@@ -1,5 +1,5 @@
 <div class="fg-field fg-field-{{ field.type }} fg-edit-canvas-field"
-     ng-class="{ 'error': field.$_invalid, 'dragging': field.$_isDragging }"
+     ng-class="{ 'error': field.$$_invalid, 'dragging': field.$_isDragging }"
      dq-draggable="fg-edit-canvas"
      dq-drag-disabled="dragEnabled === false"
      dq-drag-begin="canvasCtrl.dragBeginCanvasField($index, field)"

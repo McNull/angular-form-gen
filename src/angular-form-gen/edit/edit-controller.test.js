@@ -37,7 +37,7 @@
 //    expect(controller).toBeDefined();
 //  });
 //
-//  describe('schema.$_invalid', function() {
+//  describe('schema.$$_invalid', function() {
 //
 //    it('should be invalid when metaForm is not available', function() {
 //
@@ -53,7 +53,7 @@
 //
 //      // Assert
 //
-//      expect(schema.$_invalid).toBe(false);
+//      expect(schema.$$_invalid).toBe(false);
 //
 //    });
 //
@@ -77,7 +77,7 @@
 //
 //      // Assert
 //
-//      expect(schema.$_invalid).toBe(true);
+//      expect(schema.$$_invalid).toBe(true);
 //
 //    });
 //
@@ -101,7 +101,7 @@
 //
 //      // Assert
 //
-//      expect(schema.$_invalid).toBe(false);
+//      expect(schema.$$_invalid).toBe(false);
 //
 //    });
 //
@@ -121,7 +121,7 @@
 //
 //      var myField = new fg.Field('myType');
 //      schema.fields.push(myField);
-//      myField.$_invalid = true;
+//      myField.$$_invalid = true;
 //
 //      // Act
 //
@@ -129,7 +129,7 @@
 //
 //      // Assert
 //
-//      expect(schema.$_invalid).toBe(true);
+//      expect(schema.$$_invalid).toBe(true);
 //
 //    });
 //
