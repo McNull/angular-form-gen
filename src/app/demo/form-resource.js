@@ -67,6 +67,7 @@ app.factory('Form', function (fakeHttpResolve, formData) {
 
 });
 
+
 app.factory('formData', function () {
   var forms = [
     {
@@ -91,6 +92,14 @@ app.factory('formData', function () {
               {
                 "value": "3",
                 "text": "Option 3"
+              },
+              {
+                "value": "4",
+                "text": "Option 4"
+              },
+              {
+                "value": "5",
+                "text": "Option 5"
               }
             ],
             "value": {
@@ -99,7 +108,9 @@ app.factory('formData', function () {
             },
             "validation": {
               "messages": {},
-              "required": true
+              "required": true,
+              "minoptions": 2,
+              "maxoptions": 3
             }
           },
           {
