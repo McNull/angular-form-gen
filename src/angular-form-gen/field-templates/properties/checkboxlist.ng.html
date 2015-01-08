@@ -5,19 +5,7 @@
   <div fg-property-field-options="multiple"></div>
 </div>
 <div fg-tabs-pane="Validation">
-  <div class="fg-property-field-validation">
-    <div fg-property-field="required">
-      <div class="checkbox">
-        <label title="Indicates if a value is required for this field.">
-          <input type="checkbox" ng-model="field.validation.required" />Required
-        </label>
-      </div>
-    </div>
-
-    <div ng-if="field.validation.required">
-      <div fg-edit-validation-message="required"></div>
-    </div>
-  </div>
+  <div fg-property-field-validation="{ required: true }"></div>
 
   <div class="fg-property-field-validation">
     <div fg-property-field="minoptions"
