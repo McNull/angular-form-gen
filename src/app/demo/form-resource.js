@@ -74,6 +74,42 @@ app.factory('formData', function () {
       "schema": {
         "fields": [
           {
+            "type": "selectlist",
+            "name": "field6090",
+            "displayName": "Select List",
+            "options": [
+              {
+                "value": "",
+                "text": "Select an option"
+              },
+              {
+                "value": "Value 1",
+                "text": "Option 1"
+              },
+              {
+                "value": "Value 2",
+                "text": "Option 2"
+              },
+              {
+                "value": "Value 3",
+                "text": "Option 3"
+              }
+            ],
+            "value": "",
+            "validation": {
+              "messages": {},
+              "required": true
+            }
+          }
+        ]
+      },
+      "name": "Optional selectlist",
+      "layout": "form-horizontal"
+    },
+    {
+      "schema": {
+        "fields": [
+          {
             "type": "checkboxlist",
             "name": "field9870",
             "displayName": "Checkbox List",
@@ -173,6 +209,10 @@ app.factory('formData', function () {
             "displayName": "Select",
             "options": [
               {
+                "value": "",
+                "text": "No option selected"
+              },
+              {
                 "value": "1",
                 "text": "Option 1"
               },
@@ -188,7 +228,8 @@ app.factory('formData', function () {
             "validation": {
               "messages": {},
               "required": true
-            }
+            },
+            value: ""
           }
         ]
       }

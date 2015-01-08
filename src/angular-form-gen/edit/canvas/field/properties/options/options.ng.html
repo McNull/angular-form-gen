@@ -27,7 +27,7 @@
              ng-model="field.value[option.value]"/>
     </td>
     <td>
-      <input type="text" name="optionValue" ng-model="option.value" ng-required="true" class="form-control"/>
+      <input type="text" name="optionValue" ng-model="option.value" class="form-control" ng-required="field.type != 'selectlist'"/>
     </td>
     <td>
       <input type="text" ng-model="option.text" class="form-control"/>

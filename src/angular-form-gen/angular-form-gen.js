@@ -219,6 +219,10 @@ fg.config(function (fgConfigProvider, FgField) {
         displayName: 'Select List',
         options: [
           {
+            value: '',
+            text: 'Select an option'
+          },
+          {
             value: '1',
             text: 'Option 1'
           },
@@ -231,7 +235,7 @@ fg.config(function (fgConfigProvider, FgField) {
             text: 'Option 3'
           }
         ],
-        value: '1'
+        value: ''
       }) // ,
       // new FgField('dropdownlist', {
       //   options: [{

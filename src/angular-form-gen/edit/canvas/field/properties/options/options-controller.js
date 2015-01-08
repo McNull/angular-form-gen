@@ -42,7 +42,7 @@ fg.controller('fgPropertyFieldOptionsController', function($scope) {
     // Only used in multiple === false
     // Allow the user to deselect an option from the list
 
-    if(optionValue === $scope.field.value) {
+    if($scope.field.type !== 'selectlist' && optionValue === $scope.field.value) {
       $scope.field.value = undefined;
     }
 
