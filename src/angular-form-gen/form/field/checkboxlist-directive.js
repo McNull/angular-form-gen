@@ -56,7 +56,7 @@ fg.directive('fgCheckboxlist', function() {
 
         if(schema.validation) {
           var required = validateRequired(schema.validation, value, schema.options);
-          field.state.$setValidity('requiredOption', required);
+          field.state.$setValidity('required', required);
 
           var minc = schema.validation.minoptions;
           var maxc = schema.validation.maxoptions;

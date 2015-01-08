@@ -152,7 +152,6 @@ fg.config(function (fgConfigProvider, FgField) {
     number: 'The value "{{ field.state.$viewValue }}" is not a number.',
     min: 'The value {{ field.schema && ("should be at least " + field.schema.validation.min) || field.state.$viewValue + " is too low" }}',
     max: 'The value {{ field.schema && ("should be less than " + field.schema.validation.max) || field.state.$viewValue + " is too high" }}',
-    requiredOption: 'Please select an option.',
     minoptions: 'At least {{ field.schema.validation.minoptions }} option(s) should be selected.',
     maxoptions: 'No more than {{ field.schema.validation.maxoptions }} option(s) should be selected.'
   });
