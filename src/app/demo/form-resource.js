@@ -70,77 +70,77 @@ app.factory('Form', function (fakeHttpResolve, formData) {
 
 app.factory('formData', function () {
   var forms = [
-    {
-      "schema": {
-        "fields": [
-          {
-            "type": "selectlist",
-            "name": "field6090",
-            "displayName": "Select List",
-            "options": [
-              {
-                "value": "",
-                "text": "Select an option"
-              },
-              {
-                "value": "Value 1",
-                "text": "Option 1"
-              },
-              {
-                "value": "Value 2",
-                "text": "Option 2"
-              },
-              {
-                "value": "Value 3",
-                "text": "Option 3"
-              }
-            ],
-            "value": "",
-            "validation": {
-              "messages": {},
-              "required": true
-            }
-          }
-        ]
-      },
-      "name": "Optional selectlist",
-      "layout": "form-horizontal"
-    },
-    {
-      "schema": {
-        "fields": [
-          {
-            "type": "checkboxlist",
-            "name": "field9870",
-            "displayName": "Checkbox List",
-            "options": [
-              {
-                "value": "1",
-                "text": "Option 1"
-              },
-              {
-                "value": "2",
-                "text": "Option 2"
-              },
-              {
-                "value": "3",
-                "text": "Option 3"
-              }
-            ],
-            "value": {
-              "1": true,
-              "2": true
-            }
-          }
-        ]
-      },
-      "name": "Checkboxlist",
-      "layout": "form-horizontal"
-    },
+    //{
+    //  "schema": {
+    //    "fields": [
+    //      {
+    //        "type": "selectlist",
+    //        "name": "field6090",
+    //        "displayName": "Select List",
+    //        "options": [
+    //          {
+    //            "value": "",
+    //            "text": "Select an option"
+    //          },
+    //          {
+    //            "value": "Value 1",
+    //            "text": "Option 1"
+    //          },
+    //          {
+    //            "value": "Value 2",
+    //            "text": "Option 2"
+    //          },
+    //          {
+    //            "value": "Value 3",
+    //            "text": "Option 3"
+    //          }
+    //        ],
+    //        "value": "",
+    //        "validation": {
+    //          "messages": {},
+    //          "required": true
+    //        }
+    //      }
+    //    ]
+    //  },
+    //  "name": "Optional selectlist",
+    //  "layout": "form-horizontal"
+    //},
+    //{
+    //  "schema": {
+    //    "fields": [
+    //      {
+    //        "type": "checkboxlist",
+    //        "name": "field9870",
+    //        "displayName": "Checkbox List",
+    //        "options": [
+    //          {
+    //            "value": "1",
+    //            "text": "Option 1"
+    //          },
+    //          {
+    //            "value": "2",
+    //            "text": "Option 2"
+    //          },
+    //          {
+    //            "value": "3",
+    //            "text": "Option 3"
+    //          }
+    //        ],
+    //        "value": {
+    //          "1": true,
+    //          "2": true
+    //        }
+    //      }
+    //    ]
+    //  },
+    //  "name": "Checkboxlist",
+    //  "layout": "form-horizontal"
+    //},
     {
       "name": "Required option fields",
       "layout": "form-horizontal",
-      "description": "An example schema containing required option fields.",
+      "description": "An example schema containing required multiple choice option fields.",
       "schema": {
         "fields": [
           {
