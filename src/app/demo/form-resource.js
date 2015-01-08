@@ -71,6 +71,37 @@ app.factory('Form', function (fakeHttpResolve, formData) {
 app.factory('formData', function () {
   var forms = [
     {
+      "schema": {
+        "fields": [
+          {
+            "type": "checkboxlist",
+            "name": "field9870",
+            "displayName": "Checkbox List",
+            "options": [
+              {
+                "value": "1",
+                "text": "Option 1"
+              },
+              {
+                "value": "2",
+                "text": "Option 2"
+              },
+              {
+                "value": "3",
+                "text": "Option 3"
+              }
+            ],
+            "value": {
+              "1": true,
+              "2": true
+            }
+          }
+        ]
+      },
+      "name": "Checkboxlist",
+      "layout": "form-horizontal"
+    },
+    {
       "name": "Required option fields",
       "layout": "form-horizontal",
       "description": "An example schema containing required option fields.",
