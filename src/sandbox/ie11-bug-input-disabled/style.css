@@ -1,0 +1,13 @@
+/* Styles go here */
+
+body {
+  padding-bottom: 100px;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.needs-some-more-space {
+  margin-top: 20px;
+}
