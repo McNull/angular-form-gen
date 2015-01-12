@@ -55,7 +55,7 @@ fg.controller('fgFieldController', function($scope, fgUtils) {
       });
 
     } else if (_form.data && _form.data[fieldName] === undefined && fieldSchema.value !== undefined) {
-      _form.data[fieldName] = fieldSchema.value;
+      _form.data[fieldName] = angular.copy(fieldSchema.value);
     }
 
     return _form.data;

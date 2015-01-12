@@ -40,10 +40,12 @@ gulp.task('sandbox-clean', [ 'modules', 'bower' ], function () {
     .pipe(clean());
 });
 
-gulp.task('sandbox', [ 'sandbox-clean', 'modules', 'bower' ], function () {
+gulp.task('sandbox-copy', [ 'sandbox-clean' ], function () {
   return gulp.src(path.join(config.folders.src, 'sandbox/**/*'))
     .pipe(gulp.dest(path.join(config.folders.dest, 'sandbox')));
 });
+
+gulp.task('sandbox', [ 'sandbox-copy', 'modules', 'bower' ]);
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
 

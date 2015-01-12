@@ -122,7 +122,7 @@ fg.config(function ($provide) {
         pattern: function (nameOrObject, pattern) {
 
           if (angular.isString(nameOrObject)) {
-            config.validation.patterns[name] = pattern;
+            config.validation.patterns[nameOrObject] = pattern;
           } else {
             angular.extend(config.validation.patterns, nameOrObject);
           }
@@ -151,7 +151,9 @@ fg.config(function (fgConfigProvider, FgField) {
     unique: 'The value "{{ field.state.$viewValue }}" is already in use.',
     number: 'The value "{{ field.state.$viewValue }}" is not a number.',
     min: 'The value {{ field.schema && ("should be at least " + field.schema.validation.min) || field.state.$viewValue + " is too low" }}',
-    max: 'The value {{ field.schema && ("should be less than " + field.schema.validation.max) || field.state.$viewValue + " is too high" }}'
+    max: 'The value {{ field.schema && ("should be less than " + field.schema.validation.max) || field.state.$viewValue + " is too high" }}',
+    minoptions: 'At least {{ field.schema.validation.minoptions }} option(s) should be selected.',
+    maxoptions: 'No more than {{ field.schema.validation.maxoptions }} option(s) should be selected.'
   });
 
   // - - - - - - - - - - - - - - - - - - - - - -
@@ -217,6 +219,10 @@ fg.config(function (fgConfigProvider, FgField) {
         displayName: 'Select List',
         options: [
           {
+            value: '',
+            text: 'Select an option'
+          },
+          {
             value: '1',
             text: 'Option 1'
           },
@@ -229,7 +235,7 @@ fg.config(function (fgConfigProvider, FgField) {
             text: 'Option 3'
           }
         ],
-        value: '1'
+        value: ''
       }) // ,
       // new FgField('dropdownlist', {
       //   options: [{

@@ -19,7 +19,7 @@ fg.directive('fgTabsPane', function(fgTabsPaneLinkFn) {
       renderAlways: $attrs.fgTabsPaneRenderAlways === "true" || $attrs.renderAlways === "true"
     };
 
-    $scope.$watch($attrs.disabled, function(value) {
+    $scope.$watch($attrs.fgTabsPaneDisabled, function(value) {
       $scope.pane.disabled = value;
     });
 

@@ -4,3 +4,42 @@
 <div fg-tabs-pane="Options">
   <div fg-property-field-options="multiple"></div>
 </div>
+<div fg-tabs-pane="Validation">
+  <div fg-property-field-validation="{ required: true }"></div>
+
+  <div class="fg-property-field-validation">
+    <div fg-property-field="minoptions"
+         fg-property-field-label="Minimum options">
+      <input type="text"
+             fg-field-redraw
+             fg-input-number
+             title="The minimum number of options that should be selected."
+             name="minoptions"
+             ng-model="field.validation.minoptions"
+             class="form-control"/>
+    </div>
+
+    <div ng-if="field.validation.minoptions >= 1" >
+      <div fg-edit-validation-message="minoptions"></div>
+    </div>
+  </div>
+
+  <div class="fg-property-field-validation">
+    <div fg-property-field="maxoptions"
+         fg-property-field-label="Maximum options">
+      <input type="text"
+             fg-field-redraw
+             fg-input-number
+             title="The maximum number of options that can be selected."
+             name="maxoptions"
+             ng-model="field.validation.maxoptions"
+             class="form-control"/>
+    </div>
+
+    <div ng-if="field.validation.maxoptions >= 1" >
+      <div fg-edit-validation-message="maxoptions"></div>
+    </div>
+  </div>
+
+
+</div>
