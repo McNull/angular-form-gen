@@ -2,6 +2,7 @@ var app = angular.module('app',
   [
     'seo',
     'ngSanitize',
+    'ngAnimate',
     'ngRoute',
     'ngLogo',
     'githubLogo',

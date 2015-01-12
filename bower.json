@@ -18,7 +18,7 @@
     "schema",
     "generator"
   ],
-  "version": "0.0.2",
+  "version": "0.1.0-beta.1",
   "authors": [
     "Null McNull <noreplies@hotmail.com> https://github.com/McNull"
   ],
@@ -51,7 +51,8 @@
     "angular-inform": "~0.0.12",
     "angular-block-ui": "~0.1.0",
     "angular-markdown-text": "~0.0.2",
-    "angular-sanitize": "~1.2.21"
+    "angular-sanitize": "~1.2.21",
+    "angular-animate": "~1.2.21"
   },
   "overrides": {
     "respond": {
