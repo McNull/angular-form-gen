@@ -1,28 +1,31 @@
-// var fg = fg || {};
+describe('fgConfigProvider', function () {
 
-// fg.mocks = {
-//   controllers: {
+  var configProvider;
 
-//     register: function(name, Controller) {
+  beforeEach(function () {
+    // Initialize the service provider 
+    // by injecting it to a fake module's config block
+    var fakeModule = angular.module('this.is.so.fake', function () {});
+    fakeModule.config(function (fgConfigProvider) {
+      configProvider = fgConfigProvider;
+    });
+    // Initialize test.app injector
+    module('fg', 'this.is.so.fake');
 
-//       fg.mocks.controllers.constructors[name] = Controller;
+    // Kickstart the injectors previously registered 
+    // with calls to angular.mock.module
+    inject(function () {});
+  });
 
-//     },
+  it('it should resolve the fgConfigProvider', function () {
+    expect(configProvider).not.toBeUndefined();
+  });
 
-//     add: function(name, Controller) {
+  it('should get field template by type', function () {
 
-//       Controller = Controller || fg.controllers.constructors[name] || function($scope) {
-//         fg.mocks.controllers[name].instance = this;
-//       };
-
-//       fg.controller(name, Controller);
-//     },
-
-//     constructors: {
-
-//       fgSchemaController: function($scope) {
-        
-//       }
-//     }
-//   }
-// };
+    var result = configProvider.fields.get('text');
+    
+    expect(result).toBeDefined();
+    expect(result.type).toBe('text');
+  });
+});

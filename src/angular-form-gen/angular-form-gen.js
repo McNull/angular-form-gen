@@ -79,6 +79,15 @@ fg.config(function ($provide) {
           this.category(type);
           this.renderInfo(type);
         },
+        get: function(type) {
+          var i = templates.length;
+          while(i--) {
+            var t = templates[i];
+            if(t.type === type) {
+              return t;
+            }
+          }
+        },
         renderInfo: function (fieldType, templateUrl, propertiesTemplateUrl) {
           config.fields.renderInfo[fieldType] = {
             templateUrl: templateUrl,

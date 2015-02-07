@@ -28,37 +28,73 @@ describe('fg-edit-palette', function () {
 
   describe('controller', function () {
 
-    it('should create a copy of the templates found in the configuration', function () {
+    describe('template copy from configuration', function () {
 
-      // Arrange
+      it('should create a copy of the templates found in the configuration', function () {
 
-      var templates = fgConfigMock.fields.templates = [
-        new FgField('myType'), new FgField('myOtherType')
-      ];
+        // Arrange
 
-      // Act
+        var templates = fgConfigMock.fields.templates = [
+          new FgField('myType'), new FgField('myOtherType')
+        ];
 
-      $controller('fgEditPaletteController', { $scope: $scope, fgConfig: fgConfigMock });
+        // Act
 
-      // Assert
-
-      expect($scope.templates).toBeDefined();
-      expect($scope.templates).not.toBe(templates);
-
-      expect($scope.templates.length).toEqual(templates.length);
-
-      _.forEach($scope.templates, function (copyTemplate) {
-
-        var origTemplate = _.find(templates, { type: copyTemplate.type });
-
-        expect(origTemplate).toBeDefined();
-        expect(origTemplate).not.toBe(copyTemplate);
-
-        _.forEach(origTemplate, function (value, key) {
-          if (key !== 'id') {
-            expect(value).toEqual(copyTemplate[key]);
-          }
+        $controller('fgEditPaletteController', {
+          $scope: $scope,
+          fgConfig: fgConfigMock
         });
+
+        // Assert
+
+        expect($scope.templates).toBeDefined();
+        expect($scope.templates).not.toBe(templates);
+
+        expect($scope.templates.length).toEqual(templates.length);
+
+        _.forEach($scope.templates, function (copyTemplate) {
+
+          var origTemplate = _.find(templates, {
+            type: copyTemplate.type
+          });
+
+          expect(origTemplate).toBeDefined();
+          expect(origTemplate).not.toBe(copyTemplate);
+
+          _.forEach(origTemplate, function (value, key) {
+            if (key !== 'id') {
+              expect(value).toEqual(copyTemplate[key]);
+            }
+          });
+        });
+      });
+
+      it('copy should not contain templates marked editor.visible == false', function () {
+
+        // Arrange
+
+        var templates = fgConfigMock.fields.templates = [
+          new FgField('myVisibleType'), 
+          new FgField('myInvisibleType', {
+            editor: {
+              visible: false
+            }  
+          })
+        ];
+
+        // Act
+
+        $controller('fgEditPaletteController', {
+          $scope: $scope,
+          fgConfig: fgConfigMock
+        });
+
+        // Assert
+
+        expect($scope.templates).toBeDefined();
+        expect($scope.templates.length).toEqual(1);
+        expect($scope.templates[0].type).toBe('myVisibleType');
+      
       });
     });
 
@@ -68,7 +104,10 @@ describe('fg-edit-palette', function () {
 
         // Arrange
 
-        $controller('fgEditPaletteController', { $scope: $scope, fgConfig: fgConfigMock });
+        $controller('fgEditPaletteController', {
+          $scope: $scope,
+          fgConfig: fgConfigMock
+        });
 
         $scope.selectedCategory = null;
 
@@ -90,11 +129,18 @@ describe('fg-edit-palette', function () {
         ];
 
         var categories = fgConfigMock.fields.categories = {
-          'myCategory': { 'myType': true },
-          'myOtherCategory': { 'myOtherType': true }
+          'myCategory': {
+            'myType': true
+          },
+          'myOtherCategory': {
+            'myOtherType': true
+          }
         };
 
-        $controller('fgEditPaletteController', { $scope: $scope, fgConfig: fgConfigMock });
+        $controller('fgEditPaletteController', {
+          $scope: $scope,
+          fgConfig: fgConfigMock
+        });
 
         $scope.selectedCategory = categories['myOtherCategory'];
 
@@ -116,11 +162,18 @@ describe('fg-edit-palette', function () {
         ];
 
         var categories = fgConfigMock.fields.categories = {
-          'myCategory': { 'myType': true },
-          'myOtherCategory': { 'myOtherType': true }
+          'myCategory': {
+            'myType': true
+          },
+          'myOtherCategory': {
+            'myOtherType': true
+          }
         };
 
-        $controller('fgEditPaletteController', { $scope: $scope, fgConfig: fgConfigMock });
+        $controller('fgEditPaletteController', {
+          $scope: $scope,
+          fgConfig: fgConfigMock
+        });
 
         $scope.selectedCategory = categories['myCategory'];
 

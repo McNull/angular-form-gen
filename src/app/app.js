@@ -25,7 +25,12 @@ app.controller('MainCtrl', function ($scope, appMenuItems, seoPageState) {
   $scope.menuItems = appMenuItems;
 });
 
-
-
+//app.config(function(fgConfigProvider) {
+//  
+//  var numberField = fgConfigProvider.fields.get('number');
+//  numberField.editor = { visible: false };
+//  
+//});
+//
 
 
