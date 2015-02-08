@@ -1472,12 +1472,12 @@ fg.filter('j$on',function () {
     };
   }]);
 
-fg.controller('fgTabsController', function () {
+fg.controller('fgTabsController', ["$scope", function ($scope) {
 
   this.items = [];
   this.active = null;
   this.activeIndex = -1;
-
+  
   this.add = function (item) {
     this.items.push(item);
 
@@ -1485,7 +1485,7 @@ fg.controller('fgTabsController', function () {
       return x.order - y.order;
     });
 
-    if (!this.active && item.autoActive != false) {
+    if (!$scope.active && item.autoActive != false) {
       this.activate(item);
     }
   };
@@ -1525,13 +1525,13 @@ fg.controller('fgTabsController', function () {
     }
 
     if (!item.disabled) {
-      this.active = item;
-      this.activeIndex = idx;
+      this.active = $scope.active = item;
+      this.activeIndex = $scope.activeIndex = idx;
     }
 
   };
 
-});
+}]);
 fg.directive('fgTabs', function() {
   return {
     require: ['fgTabs'],
@@ -1540,10 +1540,18 @@ fg.directive('fgTabs', function() {
     controller: 'fgTabsController',
     templateUrl: 'angular-form-gen/common/tabs/tabs.ng.html',
     scope: {
-      'tabs': '=?fgTabs'
+      'tabs': '=?fgTabs',
+      'active': '=?fgTabsActive',
+      'activeIndex': '=?fgTabsActiveIndex'
     },
     link: function($scope, $element, $attrs, $ctrls) {
       $scope.tabs = $ctrls[0];
+      
+      $scope.$watch('activeIndex', function(value) {
+        if(value !== undefined && $scope.tabs.activeIndex !== value) {
+          $scope.tabs.activate(value);
+        }
+      });
     }
   };
 });
