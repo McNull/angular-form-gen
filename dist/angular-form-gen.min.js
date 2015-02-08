@@ -1,5 +1,5 @@
 /*!
-   angular-form-gen v0.1.0-beta.3
+   angular-form-gen v0.1.0-beta.5
    (c) 2015 (null) McNull https://github.com/McNull/angular-form-gen
    License: MIT
 */
