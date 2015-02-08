@@ -1,5 +1,5 @@
 /*!
-   angular-form-gen v0.1.0-beta.1
+   angular-form-gen v0.1.0-beta.2
    (c) 2015 (null) McNull https://github.com/McNull/angular-form-gen
    License: MIT
 */
@@ -85,6 +85,15 @@ fg.config(["$provide", function ($provide) {
 
           this.category(type);
           this.renderInfo(type);
+        },
+        get: function(type) {
+          var i = templates.length;
+          while(i--) {
+            var t = templates[i];
+            if(t.type === type) {
+              return t;
+            }
+          }
         },
         renderInfo: function (fieldType, templateUrl, propertiesTemplateUrl) {
           config.fields.renderInfo[fieldType] = {
@@ -1648,14 +1657,25 @@ fg.directive('fgEditCanvas', function() {
 
 fg.controller('fgEditPaletteController', ["$scope", "fgConfig", function ($scope, fgConfig) {
 
-  $scope.templates = angular.copy(fgConfig.fields.templates);
-
-  var count = 0;
-
+  $scope.templates = [];
+  
+  var tmpls = fgConfig.fields.templates;
+  var i = tmpls.length;
+  
+  while(i--) {
+    var tmpl = tmpls[i];
+    
+    if(tmpl.editor && tmpl.editor.visible == false) {
+      continue;
+    }
+    
+    $scope.templates.unshift(angular.copy(tmpl));
+  }
+  
   $scope.templateFilter = function (template) {
     return !$scope.selectedCategory || $scope.selectedCategory[template.type];
   };
-
+  
 }]);
 fg.directive('fgEditPalette',function () {
   return {
