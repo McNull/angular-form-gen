@@ -1,12 +1,12 @@
-describe('fg-tabs-controller', function() {
+describe('fg-tabs-controller', function () {
 
   var $controller, $scope;
 
-  beforeEach(function() {
+  beforeEach(function () {
 
     module('fg');
 
-    inject(function(_$controller_, _$rootScope_) {
+    inject(function (_$controller_, _$rootScope_) {
 
       $controller = _$controller_;
       $scope = _$rootScope_.$new();
@@ -15,7 +15,7 @@ describe('fg-tabs-controller', function() {
 
   });
 
-  it('should construct controller', function() {
+  it('should construct controller', function () {
 
     var result = $controller('fgTabsController', {
       $scope: $scope
@@ -25,9 +25,9 @@ describe('fg-tabs-controller', function() {
 
   });
 
-  describe('when activating panes', function() {
+  describe('when activating panes', function () {
 
-    it('should set the active property to the pane', function() {
+    it('should set the active property to the pane', function () {
 
       // Arrange
 
@@ -35,7 +35,8 @@ describe('fg-tabs-controller', function() {
         $scope: $scope
       });
 
-      var pane1 = {}, pane2 = {};
+      var pane1 = {},
+        pane2 = {};
 
       controller.add(pane1);
       controller.add(pane2);
@@ -49,7 +50,7 @@ describe('fg-tabs-controller', function() {
       expect(controller.active).toBe(pane2);
     });
 
-    it('should not activate a disabled pane', function() {
+    it('should not activate a disabled pane', function () {
 
       // Arrange
 
@@ -57,7 +58,10 @@ describe('fg-tabs-controller', function() {
         $scope: $scope
       });
 
-      var pane1 = {}, pane2 = { disabled: true };
+      var pane1 = {},
+        pane2 = {
+          disabled: true
+        };
 
       controller.add(pane1);
       controller.add(pane2);
@@ -74,11 +78,61 @@ describe('fg-tabs-controller', function() {
 
     });
 
+    describe('active index property', function () {
+      
+      it('should set the active index property', function () {
+
+        // Arrange
+
+        var controller = $controller('fgTabsController', {
+          $scope: $scope
+        });
+
+        var pane1 = {},
+          pane2 = {};
+
+        controller.add(pane1);
+        controller.add(pane2);
+
+        // Act
+
+        controller.activate(pane2);
+
+        // Assert
+
+        expect(controller.activeIndex).toBe(1);
+      });
+      
+      it('should set activate the pane by index', function () {
+
+        // Arrange
+
+        var controller = $controller('fgTabsController', {
+          $scope: $scope
+        });
+
+        var pane1 = {},
+          pane2 = {};
+
+        controller.add(pane1);
+        controller.add(pane2);
+
+        // Act
+
+        controller.activate(1);
+
+        // Assert
+
+        expect(controller.active).toBe(pane2);
+      });
+      
+      
+    });
   });
 
-  describe('when adding panes', function() {
+  describe('when adding panes', function () {
 
-    it('should add pane to collection', function() {
+    it('should add pane to collection', function () {
 
       // Arrange
 
@@ -86,7 +140,8 @@ describe('fg-tabs-controller', function() {
         $scope: $scope
       });
 
-      var pane1 = {}, pane2 = {};
+      var pane1 = {},
+        pane2 = {};
 
       // Act
 
@@ -101,7 +156,7 @@ describe('fg-tabs-controller', function() {
 
     });
 
-    it('should set the first pane active', function() {
+    it('should set the first pane active', function () {
 
       // Arrange
 
@@ -109,7 +164,8 @@ describe('fg-tabs-controller', function() {
         $scope: $scope
       });
 
-      var pane1 = {}, pane2 = {};
+      var pane1 = {},
+        pane2 = {};
 
       // Act
 
@@ -122,7 +178,7 @@ describe('fg-tabs-controller', function() {
 
     });
 
-    it('should NOT set the first pane active if auto activate is false', function() {
+    it('should NOT set the first pane active if auto activate is false', function () {
 
       // Arrange
 
@@ -130,7 +186,10 @@ describe('fg-tabs-controller', function() {
         $scope: $scope
       });
 
-      var pane1 = { autoActive: false }, pane2 = {};
+      var pane1 = {
+          autoActive: false
+        },
+        pane2 = {};
 
       // Act
 
@@ -143,7 +202,7 @@ describe('fg-tabs-controller', function() {
 
     });
 
-    it('should order the panes', function() {
+    it('should order the panes', function () {
 
       // Arrange
 
@@ -151,7 +210,15 @@ describe('fg-tabs-controller', function() {
         $scope: $scope
       });
 
-      var pane1 = { order: 10 }, pane2 = { order: 100 }, pane3 = { order: 1 };
+      var pane1 = {
+          order: 10
+        },
+        pane2 = {
+          order: 100
+        },
+        pane3 = {
+          order: 1
+        };
 
       // Act
 

@@ -1,5 +1,5 @@
 /*!
-   angular-form-gen v0.1.0-beta.2
+   angular-form-gen v0.1.0-beta.3
    (c) 2015 (null) McNull https://github.com/McNull/angular-form-gen
    License: MIT
 */
@@ -1476,11 +1476,12 @@ fg.controller('fgTabsController', function () {
 
   this.items = [];
   this.active = null;
+  this.activeIndex = -1;
 
   this.add = function (item) {
     this.items.push(item);
 
-    this.items.sort(function(x, y) {
+    this.items.sort(function (x, y) {
       return x.order - y.order;
     });
 
@@ -1489,16 +1490,48 @@ fg.controller('fgTabsController', function () {
     }
   };
 
-  this.activate = function (item) {
+  this.activate = function (itemOrIndex) {
 
-    if(!item.disabled) {
+    var idx = -1, item;
+    
+    if (isNaN(itemOrIndex)) {
+      
+      // Locate the item index
+      
+      item = itemOrIndex;
+      var i = this.items.length;
+
+      while (i--) {
+        if (this.items[i] === item) {
+          idx = i;
+          break;
+        }
+      }
+
+      if (idx === -1) {
+        throw new Error('Cannot activate pane: not found in pane list.');
+      }
+    } else {
+      
+      // Grab the item at the provided index
+      
+      idx = itemOrIndex;
+      
+      if(idx < 0 || idx >= this.items.length) {
+        throw new Error('Cannot activate pane: index out of bounds.')
+      }
+      
+      item = this.items[idx];
+    }
+
+    if (!item.disabled) {
       this.active = item;
+      this.activeIndex = idx;
     }
 
   };
 
 });
-
 fg.directive('fgTabs', function() {
   return {
     require: ['fgTabs'],
