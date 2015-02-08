@@ -13,26 +13,9 @@ describe('fg-tabs-directive', function() {
 
   });
 
-  describe('when compiling the template', function() {
+  describe('scope properties', function() {
 
-//     it('should have access to the tabs controller', function() {
-
-//       // The pane should have access to the tabs controller via scope inheritance
-
-//       var template = '<div fg-tabs><div fg-tabs-pane></div></div>';
-
-//       var $element = angular.element(template);
-
-//       $element = $compile($element)($scope);
-//       $scope.$digest();
-
-//       var paneScope = $element.find('div').scope();
-
-//       expect(paneScope.tabs).toBeDefined();
-
-//     });
-
-    it('should have access to the tabs controller', function() {
+    it('child tabs should have access to the tabs controller', function() {
 
       // The pane content should have access to the tabs controller via scope property binding
 
@@ -43,10 +26,49 @@ describe('fg-tabs-directive', function() {
       $element = $compile($element)($scope);
       $scope.$digest();
 
-      var paneScope = $element.find('div').find('p').scope();
+      var paneScope = $element.find('.fg-tabs-pane').scope();
 
       expect(paneScope.my.tabs).toBeDefined();
 
+    });
+    
+    it('active item should be in sync with controller property', function() {
+
+      var template = '<div fg-tabs="tabs.ctrl" fg-tabs-active="tabs.active"><div fg-tabs-pane="tab1"></div><div fg-tabs-pane="tab2"></div></div>';
+
+      var $element = angular.element(template);
+
+      $element = $compile($element)($scope);
+      $scope.$digest();
+
+      expect($scope.tabs.ctrl).toBeDefined();
+      expect($scope.tabs.active).toBeDefined();
+      expect($scope.tabs.active.title).toBe("tab1");
+      
+      $scope.tabs.ctrl.activate(1);
+      $scope.$digest();
+      
+      expect($scope.tabs.active.title).toBe("tab2");
+    });
+
+    
+    it('active index should be in sync with controller property', function() {
+
+      var template = '<div fg-tabs="tabs.ctrl" fg-tabs-active-index="tabs.activeIndex"><div fg-tabs-pane="tab1"></div><div fg-tabs-pane="tab2"></div></div>';
+
+      var $element = angular.element(template);
+
+      $element = $compile($element)($scope);
+      $scope.$digest();
+
+      expect($scope.tabs.ctrl).toBeDefined();
+      expect($scope.tabs.activeIndex).toBeDefined();
+      expect($scope.tabs.activeIndex).toBe(0);
+      
+      $scope.tabs.ctrl.activate(1);
+      $scope.$digest();
+      
+      expect($scope.tabs.activeIndex).toBe(1);
     });
 
   });
@@ -121,7 +143,7 @@ describe('fg-tabs-directive', function() {
       // Arrange
 
       var $element = angular.element(
-        '<div fg-tabs>' +
+        '<div fg-tabs fg-tabs-active-index="activeIndex">' +
           '<div fg-tabs-pane="myFirstPane"></div>' +
           '<div fg-tabs-pane="mySecondPane"></div>' +
         '</div>'
@@ -142,6 +164,7 @@ describe('fg-tabs-directive', function() {
 
       expect($liFirst.hasClass('active')).toBeFalsy();
       expect($liSecond.hasClass('active')).toBeTruthy();
+      expect($scope.activeIndex).toBe(1);
     });
 
   }); // tab pane headers

@@ -47,7 +47,7 @@ describe('fg-tabs-controller', function () {
 
       // Assert
 
-      expect(controller.active).toBe(pane2);
+      expect($scope.active).toBe(pane2);
     });
 
     it('should not activate a disabled pane', function () {
@@ -74,7 +74,7 @@ describe('fg-tabs-controller', function () {
 
       // Assert
 
-      expect(controller.active).toBe(pane1);
+      expect($scope.active).toBe(pane1);
 
     });
 
@@ -100,7 +100,7 @@ describe('fg-tabs-controller', function () {
 
         // Assert
 
-        expect(controller.activeIndex).toBe(1);
+        expect($scope.activeIndex).toBe(1);
       });
       
       it('should set activate the pane by index', function () {
@@ -123,7 +123,7 @@ describe('fg-tabs-controller', function () {
 
         // Assert
 
-        expect(controller.active).toBe(pane2);
+        expect($scope.active).toBe(pane2);
       });
       
       
@@ -174,7 +174,7 @@ describe('fg-tabs-controller', function () {
 
       // Assert
 
-      expect(controller.items[0]).toBe(controller.active);
+      expect(controller.items[0]).toBe($scope.active);
 
     });
 
@@ -198,7 +198,7 @@ describe('fg-tabs-controller', function () {
 
       // Assert
 
-      expect(controller.active).toBe(pane2);
+      expect($scope.active).toBe(pane2);
 
     });
 
