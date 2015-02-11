@@ -1,5 +1,5 @@
 /*!
-   angular-form-gen v0.1.0-beta.5
+   angular-form-gen v0.1.0-beta.6
    (c) 2015 (null) McNull https://github.com/McNull/angular-form-gen
    License: MIT
 */
@@ -387,12 +387,14 @@
 .fg-field-properties-container {
   max-height: 0;
   overflow: hidden;
-  -webkit-transition: 0.5s;
-          transition: 0.5s;
+  -webkit-transition: .5s;
+          transition: .5s;
+  opacity: 0;
 }
 
 .fg-field-properties-container.visible {
   max-height: 1000px;
+  opacity: 1;
 }
 
 /*.fg-field-properties .jsonify {
