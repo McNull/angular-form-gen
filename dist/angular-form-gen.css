@@ -1,5 +1,5 @@
 /*!
-   angular-form-gen v0.1.0-beta.6
+   angular-form-gen v0.1.0-beta.7
    (c) 2015 (null) McNull https://github.com/McNull/angular-form-gen
    License: MIT
 */
@@ -236,8 +236,7 @@
   opacity: 0.0;
   -webkit-filter: aplha(opacity(0));
           filter: aplha(opacity(0));
-  -webkit-transition: height 0ms linear, opacity 0ms;
-          transition: height 0ms linear, opacity 0ms;
+  transition: height 0ms linear, opacity 0ms;
   height: 0px;
   display: none;
 }
@@ -248,8 +247,7 @@
 
 .fg-edit-canvas-dragging .fg-drag-placeholder {
   display: block;
-  -webkit-transition: height 100ms linear, opacity 500ms, margin-bottom 100ms;
-          transition: height 100ms linear, opacity 500ms, margin-bottom 100ms;
+  transition: height 100ms linear, opacity 500ms, margin-bottom 100ms;
 }
 
 .fg-drag-placeholder-visible {
@@ -387,8 +385,7 @@
 .fg-field-properties-container {
   max-height: 0;
   overflow: hidden;
-  -webkit-transition: .5s;
-          transition: .5s;
+  transition: .5s;
   opacity: 0;
 }
 
