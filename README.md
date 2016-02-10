@@ -176,6 +176,6 @@ $ gulp dist
 $ gulp-tasks/watch.sh
 
 # Execute tests
-$ karma start
+$ gulp test-run
 ```
 
