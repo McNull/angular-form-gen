@@ -1,8 +1,8 @@
 {
   "name": "angular-form-gen",
-  "version": "0.1.0-beta.7",
+  "version": "0.2.0",
   "description": "Dynamic form schema generator for AngularJS",
-  "homepage": "https://github.com/McNull/angular-form-gen",
+  "homepage": "https://github.com/flowingly-richard/angular-form-gen",
   "main": "gulp",
   "scripts": {
     "test": "gulp test"
