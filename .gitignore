@@ -5,3 +5,7 @@ node_modules/*
 bower_components/*
 dest/*
 *.log
+#dont include generated files
+angular-logo-templates.js
+angular-seo-templates.js
+github-logo-templates.js
