@@ -19,9 +19,9 @@ fg.controller('fgEditController', function ($scope, fgUtils, $location) {
 //    // Seems that this watch is sometimes fired after the scope has been destroyed(?)
 //
 //    if (schema) {
-////      schema.$_invalid = self.metaForm ? self.metaForm.$invalid : false;
+////      schema.$$_invalid = self.metaForm ? self.metaForm.$invalid : false;
 ////
-////      if (!schema.$_invalid) {
+////      if (!schema.$$_invalid) {
 //
 //      var fields = schema.fields;
 //
@@ -29,8 +29,8 @@ fg.controller('fgEditController', function ($scope, fgUtils, $location) {
 //
 //        var i = fields.length;
 //
-//        while (--i >= 0 && !schema.$_invalid) {
-//          schema.$_invalid = fields[i].$_invalid;
+//        while (--i >= 0 && !schema.$$_invalid) {
+//          schema.$$_invalid = fields[i].$$_invalid;
 //        }
 //      }
 //    }
