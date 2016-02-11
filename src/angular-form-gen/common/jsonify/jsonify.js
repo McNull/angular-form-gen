@@ -1,10 +1,24 @@
 fg.filter('j$on',function () {
+    
+    //https://github.com/angular/angular.js/commit/c054288c9722875e3595e6e6162193e0fb67a251#diff-1d54c5f722aebc473dbe96f836ddf974R995
+    function fgToJsonReplacer(key, value)
+    {
+        var val = value;
+        if(typeof key === 'string' && key.charAt(0) === '$') {
+            val = undefined;
+        }
+        if(typeof key === 'string' && key.charAt(0) === '$' && key.charAt(1) === '$') {
+            val = undefined;
+        }        
+        return val;
+    }
+    
   return function (input, displayHidden) {
 
     if(displayHidden)
       return JSON.stringify(input || {}, null, '  ');
 
-    return angular.toJson(input || {}, true);
+     return JSON.stringify(input || {}, fgToJsonReplacer, '  ');
   };
 }).directive('jsonify', function ($window, $filter) {
     return {
