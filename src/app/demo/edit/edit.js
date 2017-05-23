@@ -1,5 +1,10 @@
 app.controller('FormEditCtrl', function ($scope, $location, inform, $window, formMetaInfo, form, Form) {
 
+  $scope.callback = function(field, index) {
+    debugger
+    console.log("added field: ", index, field);
+  }
+
   $scope.form = form;
 
   // Precreate the (form) $state object here so we can access it later.

@@ -10,6 +10,7 @@ var gulp = require('gulp');
 var path = require('path');
 var karma = require('gulp-karma');
 var clean = require('gulp-rimraf');
+var webserver = require('gulp-webserver');
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
@@ -114,3 +115,13 @@ gulp.task('watch', [ 'modules-watch' ]);
 gulp.task('default', [ 'build' ]);
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
+
+// Launch webserver
+gulp.task('webserver', function() {
+  return gulp.src('dest')
+    .pipe(webserver({
+      host: '0.0.0.0',
+      livereload: true,
+      open: false
+    }));
+});

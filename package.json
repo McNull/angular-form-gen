@@ -16,7 +16,6 @@
   ],
   "author": "(null) McNull",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "~2.2.0",
     "gulp": "~3.8.7",
@@ -40,6 +39,8 @@
     "main-bower-files": "~1.0.2",
     "merge-stream": "~0.1.5",
     "through2": "~0.5.1",
-    "vinyl": "~0.3.2"
+    "vinyl": "~0.3.2",
+    "gulp-webserver": "^0.9.1",
+    "ng-showdown": "^1.1.0"
   }
 }

@@ -10,7 +10,7 @@ fg.controller('fgSchemaController', function($scope, fgUtils) {
         value.fields = [];
       }
     }
-    
+
     return _model;
   };
 
@@ -20,6 +20,10 @@ fg.controller('fgSchemaController', function($scope, fgUtils) {
 
     index = index === undefined ? _model.fields.length : index;
     _model.fields.splice(index, 0, copy);
+    //call to the add field callback function if it's set
+    if (this.addFieldCallback) {
+      this.addFieldCallback(field, index);
+    }
 
   };
 
