@@ -19,14 +19,16 @@
            ng-model="field.name"
            ng-required="true"
            ng-pattern="/^[a-zA-Z]([\w]+)?$/"
-           fg-unique-field-name/>
+           fg-unique-field-name
+           change-on-blur="propChanged()"/>
   </div>
 </div>
 
 <!-- displayName -->
 <div ng-if="fields.displayname">
   <div fg-property-field="displayName" fg-property-field-label="Display name">
-    <input type="text" class="form-control" name="displayName" ng-model="field.displayName"/>
+    <input type="text" class="form-control" name="displayName" ng-model="field.displayName"
+           change-on-blur="propChanged()"/>
   </div>
 </div>
 
@@ -36,7 +38,8 @@
     <input type="text"
            class="form-control"
            name="fieldPlaceholder"
-           ng-model="field.placeholder"/>
+           ng-model="field.placeholder"
+           change-on-blur="propChanged()"/>
   </div>
 </div>
 
@@ -46,7 +49,7 @@
     <input type="text"
            class="form-control"
            name="fieldTooltip"
-           ng-model="field.tooltip"/>
+           ng-model="field.tooltip"
+           change-on-blur="propChanged()"/>
   </div>
 </div>
-

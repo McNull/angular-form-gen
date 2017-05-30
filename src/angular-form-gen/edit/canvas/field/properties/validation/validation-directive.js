@@ -30,5 +30,9 @@ fg.directive('fgPropertyFieldValidation', function(fgPropertyFieldValidationLink
     $scope.$watch($attrs['fgPropertyFieldValidation'], function(value) {
       $scope.fields = angular.extend($scope.fields, value);
     });
+
+    $scope.propChanged = function() {
+      $scope.$emit('propChanged', $scope.index);
+    }
   };
 });

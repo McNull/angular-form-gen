@@ -1,5 +1,9 @@
 fg.controller('fgEditController', function ($scope, fgUtils, $location) {
 
+  $scope.$on('propChanged', function(event, data) {
+    $scope.modifyPropertyCallback(data);
+  });
+
 //  var self = this;
 
 //  $scope.preview = $location.search().preview;

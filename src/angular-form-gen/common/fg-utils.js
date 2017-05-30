@@ -5,18 +5,18 @@ fg.factory('fgUtils', function ($templateCache, $window, fgConfig) {
     return {
       getScrollOffset: function() {
 
-        // the pageYOffset property of the window object is supported in all browsers except 
+        // the pageYOffset property of the window object is supported in all browsers except
         // in Internet Explorer before version 9, and always returns the scroll amount regardless of the doctype
-        
+
         // the scrollY property of the window object is supported by Firefox, Google Chrome and Safari, and always
         // returns the scroll amount regardless of the doctype
-        
+
         // if a doctype is specified in the document, the scrollTop property of the html element returns the scroll
         // amount in Internet Explorer, Firefox and Opera, but always returns zero in Google Chrome and Safari
-        
+
         // if no doctype is specified in the document, the scrollTop property of the html element always returns zero
 
-        // if no doctype is specified in the document, the scrollTop property of the body element returns the 
+        // if no doctype is specified in the document, the scrollTop property of the body element returns the
         // scroll amount in Internet Explorer, Firefox, Opera, Google Chrome and Safari.
 
         var offset = {};
@@ -111,4 +111,33 @@ fg.factory('fgUtils', function ($templateCache, $window, fgConfig) {
         return buffer;
       }
     };
+  }).directive('changeOnBlur', function() {
+      return {
+          restrict: 'A',
+          require: 'ngModel',
+          link: function(scope, elm, attrs, ngModelCtrl) {
+              if (attrs.type === 'radio' || attrs.type === 'checkbox')
+                  return;
+
+              var expressionToCall = attrs.changeOnBlur;
+
+              var oldValue = null;
+              elm.bind('focus',function() {
+                  scope.$apply(function() {
+                      oldValue = elm.val();
+                      console.log(oldValue);
+                  });
+              })
+              elm.bind('blur', function() {
+                  scope.$apply(function() {
+                      var newValue = elm.val();
+                      console.log(newValue);
+                      if (newValue !== oldValue){
+                          scope.$eval(expressionToCall);
+                      }
+                          //alert('changed ' + oldValue);
+                  });
+              });
+          }
+      };
   });

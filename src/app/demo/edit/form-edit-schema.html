@@ -1,8 +1,13 @@
 
 <div fg-tabs>
   <div fg-tabs-pane="Schema" render-always="true">
-    <div fg-edit add-field-callback="callback"
-         fg-schema="form.schema">
+    <div fg-edit
+         fg-schema="form.schema"
+         add-field-callback="addFieldCallback"
+         move-field-callback="moveFieldCallback"
+         remove-field-callback="removeFieldCallback"
+         modify-property-callback="modifyPropertyCallback"
+         >
     </div>
   </div>
 

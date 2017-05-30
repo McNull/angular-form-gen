@@ -6,7 +6,6 @@ fg.directive('fgPropertyFieldCommon', function(fgPropertyFieldCommonLinkFn) {
   };
 }).factory('fgPropertyFieldCommonLinkFn', function() {
   return function($scope, $element, $attrs, ctrls) {
-
     $scope.fields = {
       fieldname: false,
       displayname: false,

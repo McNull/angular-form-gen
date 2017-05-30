@@ -4,14 +4,13 @@ fg.controller('fgFieldController', function($scope, fgUtils) {
   var _form, _field;
 
   this.init = function(fgFormCtrl, fieldSchema, editMode) {
-    
+
     self.initForm(fgFormCtrl);
     self.initField(fieldSchema);
     self.initDefaultData(fieldSchema, editMode);
 
     $scope.form = _form;
     $scope.field = _field;
-    
   };
 
   this.initForm = function(fgFormCtrl) {
@@ -39,9 +38,9 @@ fg.controller('fgFieldController', function($scope, fgUtils) {
     var fieldName = fieldSchema.name;
 
     _form.data = _form.data || {};
-    
+
     if (editMode) {
-      
+
       $scope.$watch('field.schema.value', function(value) {
         _form.data[fieldSchema.name] = value;
       });
