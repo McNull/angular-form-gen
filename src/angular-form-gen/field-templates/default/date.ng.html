@@ -1,0 +1,10 @@
+<input class="form-control"
+       fg-field-input
+       type="text"
+       id="{{ field.$_id }}"
+       title="{{ field.schema.tooltip }}"
+       tabindex="{{ tabIndex }}"
+       placeholder="{{ field.schema.placeholder }}"
+       ng-model="form.data[field.schema.name]"
+       ng-required="field.schema.validation.required"
+       ng-pattern="/{{ field.schema.validation.pattern }}/">
