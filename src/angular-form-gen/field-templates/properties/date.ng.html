@@ -11,11 +11,12 @@
 
   -->
   <div fg-property-field-value>
-    <input type="text"
+    <input fg-update-pattern
+           type="text"
            class="form-control"
            name="fieldValue"
            ng-model="field.value"
-           ng-pattern="/{{ field.validation.pattern }}/"/>
+           ng-pattern="field.validation.pattern"/>
   </div>
 </div>
 <div fg-tabs-pane="Validation">

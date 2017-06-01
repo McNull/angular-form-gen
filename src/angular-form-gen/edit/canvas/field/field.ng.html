@@ -1,5 +1,12 @@
-<div class="fg-field fg-field-{{ field.type }} fg-edit-canvas-field" ng-class="{ 'error': field.$_invalid, 'dragging': field.$_isDragging }" dq-draggable="fg-edit-canvas" dq-drag-disabled="dragEnabled === false" dq-drag-begin="canvasCtrl.dragBeginCanvasField($index, field)" dq-drag-end="canvasCtrl.dragEndCanvasField(field)">
-  <div class="fg-field-overlay" ng-mouseenter="dragEnabled = true" ng-mouseleave="dragEnabled = false">
+<div class="fg-field fg-field-{{ field.type }} fg-edit-canvas-field"
+     ng-class="{ 'error': field.$$_invalid, 'dragging': field.$_isDragging }"
+     dq-draggable="fg-edit-canvas"
+     dq-drag-disabled="dragEnabled === false"
+     dq-drag-begin="canvasCtrl.dragBeginCanvasField($index, field)"
+     dq-drag-end="canvasCtrl.dragEndCanvasField(field)">
+  <div class="fg-field-overlay"
+       ng-mouseenter="dragEnabled = true"
+       ng-mouseleave="dragEnabled = false">
     <div class="fg-field-overlay-drag-top" dq-drag-enter="dragPlaceholder.index = $index"></div>
     <div class="fg-field-overlay-drag-bottom" dq-drag-enter="dragPlaceholder.index = ($index + 1)"></div>
     <div class="btn-toolbar btn-toolbar-right">

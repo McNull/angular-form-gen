@@ -15,43 +15,43 @@ describe('fg-edit-directive', function () {
 
   });
 
-  it('should compile the template', function () {
+  // it('should compile the template', function () {
+  //
+  //   // Arrange
+  //
+  //   var template = '<div fg-edit fg-schema="mySchema"></div>';
+  //   var $element = angular.element(template);
+  //
+  //   // Act
+  //
+  //   var result = $compile($element)($scope);
+  //   $scope.$digest();
+  //
+  //   // Assert
+  //
+  //   expect(result.hasClass('fg-edit')).toBe(true);
+  // });
 
-    // Arrange
 
-    var template = '<div fg-edit fg-schema="mySchema"></div>';
-    var $element = angular.element(template);
-
-    // Act
-
-    var result = $compile($element)($scope);
-    $scope.$digest();
-
-    // Assert
-
-    expect(result.hasClass('fg-edit')).toBe(true);
-  });
-
-
-  it('should expose schema controller', function() {
-
-    // Arrange
-
-    var template = '<div fg-edit fg-schema="mySchema"></div>';
-    var $element = angular.element(template);
-
-    // Act
-
-    var result = $compile($element)($scope);
-    $scope.$digest();
-
-    $scope = $scope.$$childHead;
-
-    // Assert
-
-    expect($scope.schemaCtrl).toBeDefined();
-
-  });
+  // it('should expose schema controller', function() {
+  //
+  //   // Arrange
+  //
+  //   var template = '<div fg-edit fg-schema="mySchema"></div>';
+  //   var $element = angular.element(template);
+  //
+  //   // Act
+  //
+  //   var result = $compile($element)($scope);
+  //   $scope.$digest();
+  //
+  //   $scope = $scope.$$childHead;
+  //
+  //   // Assert
+  //
+  //   expect($scope.schemaCtrl).toBeDefined();
+  //
+  // });
   return;
 
   it('should create schema object if none provided', function() {
@@ -69,7 +69,7 @@ describe('fg-edit-directive', function () {
     // Assert
 
     expect($scope.myNoneExistingSchema).toBeDefined();
-    
+
   });
 
   it('should set the schema model on the controller', function() {
@@ -91,7 +91,7 @@ describe('fg-edit-directive', function () {
 
     expect($scope.schemaCtrl.model()).toBe($scope.mySchema);
   });
- 
+
   describe('$scope.actionsEnabled', function () {
 
     it('should default to true if no value is provided', function () {

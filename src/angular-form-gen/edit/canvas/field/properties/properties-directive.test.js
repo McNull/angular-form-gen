@@ -155,7 +155,7 @@ describe('fg-edit-canvas-field-properties-directive', function() {
 //
 //      $scope.$digest();
 //
-//      var before = $scope.myField.$_invalid;
+//      var before = $scope.myField.$$_invalid;
 //
 //      // Act
 //
@@ -163,7 +163,7 @@ describe('fg-edit-canvas-field-properties-directive', function() {
 //
 //      $scope.$digest();
 //
-//      var after = $scope.myField.$_invalid;
+//      var after = $scope.myField.$$_invalid;
 //
 //      // Assert
 //
@@ -184,7 +184,7 @@ describe('fg-edit-canvas-field-properties-directive', function() {
 
   //     $scope.$digest();
 
-  //     var before = $scope.myField.$_invalid;
+  //     var before = $scope.myField.$$_invalid;
 
   //     // Act
 
@@ -192,7 +192,7 @@ describe('fg-edit-canvas-field-properties-directive', function() {
 
   //     $scope.$digest();
 
-  //     var after = $scope.myField.$_invalid;
+  //     var after = $scope.myField.$$_invalid;
 
   //     // Assert
 
@@ -218,7 +218,7 @@ describe('fg-edit-canvas-field-properties-directive', function() {
 
   //     $scope.$digest();
 
-  //     var before = $scope.myField.$_invalid;
+  //     var before = $scope.myField.$$_invalid;
 
   //     // Act
 
@@ -226,7 +226,7 @@ describe('fg-edit-canvas-field-properties-directive', function() {
 
   //     $scope.$digest();
 
-  //     var after = $scope.myField.$_invalid;
+  //     var after = $scope.myField.$$_invalid;
 
   //     // Assert
 
