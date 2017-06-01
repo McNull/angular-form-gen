@@ -1,4 +1,4 @@
-<!-- 
+<!--
   input fields marked as fg-field-redraw will cause the initial value input to redraw
 -->
 
@@ -12,7 +12,8 @@
            title="The minimum length of characters that should be entered."
        		 name="minlength"
        		 ng-model="field.validation.minlength"
-           class="form-control"/>
+           class="form-control"
+           change-on-blur="propChanged()"/>
   </div>
 
   <div ng-if="field.validation.minlength >= 1" >
@@ -30,7 +31,8 @@
            title="The maximum length of characters that should be entered."
            name="maxlength"
            ng-model="field.validation.maxlength"
-           class="form-control"/>
+           class="form-control"
+           change-on-blur="propChanged()"/>
   </div>
 
   <div ng-if="field.validation.maxlength >= 1" >
@@ -47,7 +49,8 @@
          title="The pattern that should match with the input value."
          fg-parse-pattern
          fg-field-redraw
-         ng-model="field.validation.pattern"></div>
+         ng-model="field.validation.pattern"
+         ng-change="propChanged()"></div>
   </div>
 
   <div ng-if="field.validation.pattern.length > 0" >
@@ -60,11 +63,11 @@
   <div fg-property-field="required">
     <div class="checkbox">
       <label title="Indicates if a value is required for this field.">
-        <input type="checkbox" ng-model="field.validation.required" />Required
+        <input type="checkbox" ng-model="field.validation.required" ng-change="propChanged()"/>Required
       </label>
     </div>
   </div>
-  
+
   <div ng-if="field.validation.required">
     <div fg-edit-validation-message="required"></div>
   </div>

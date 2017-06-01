@@ -615,7 +615,7 @@ app.factory('formData', function () {
       "layout": "form-horizontal",
       "description": "Beserk form"
 },
-    
+
     ///////////////////////////////////////////////////////////////////////////////
 
     {
@@ -945,6 +945,13 @@ app.factory('formData', function () {
       "layout": "form-horizontal",
       "schema": {
         "fields": [
+          {
+            "type": "date",
+            "name": "startDate",
+            "displayName": "Start Date",
+            "placeholder": "Fill in your first name",
+            "tooltip": "Fill in your first name"
+          },
           {
             "type": "text",
             "name": "firstName",

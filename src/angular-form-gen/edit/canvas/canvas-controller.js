@@ -62,7 +62,6 @@ fg.controller('fgEditCanvasController', function ($scope, dqUtils, $timeout, fgU
 
       if (source == 'palette') {
         $scope.schemaCtrl.addField(field, $scope.dragPlaceholder.index);
-
       } else if (source == 'canvas') {
         $scope.schemaCtrl.moveField(index, $scope.dragPlaceholder.index);
 

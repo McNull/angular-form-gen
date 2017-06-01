@@ -16,11 +16,9 @@
            class="form-control"
            name="fieldValue"
            ng-model="field.value"
-           ng-minlength="{{ field.validation.minlength }}"
-           ng-maxlength="{{ field.validation.maxlength }}"
            ng-pattern="field.validation.pattern"/>
   </div>
 </div>
 <div fg-tabs-pane="Validation">
-  <div fg-property-field-validation="{ required: true, minlength: true, maxlength: true, pattern: true }"></div>
+  <div fg-property-field-validation="{ required: true, pattern: true }"></div>
 </div>

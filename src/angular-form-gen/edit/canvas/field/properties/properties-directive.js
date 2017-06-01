@@ -19,16 +19,16 @@ fg.directive('fgEditCanvasFieldProperties', function (fgUtils) {
   return {
     templateUrl: 'angular-form-gen/edit/canvas/field/properties/properties.ng.html',
     scope: {
-      field: '=fgEditCanvasFieldProperties'
+      field: '=fgEditCanvasFieldProperties',
+      index: '='
     },
     link: {
       pre: function ($scope) {
         $scope.property = {};
       },
       post: function ($scope) {
-
         $scope.$watch('fieldPropertiesForm.$invalid', function (newValue) {
-          $scope.field.$_invalid = newValue;
+          $scope.field.$$_invalid = newValue;
         });
 
         $scope.renderInfo = fgUtils.getRenderInfo($scope.field);

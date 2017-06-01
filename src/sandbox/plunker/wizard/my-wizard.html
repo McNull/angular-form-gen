@@ -4,14 +4,14 @@
 
     <legend>
       <div class="row">
-        <div class="col-sm-offset-3 col-sm-9">
+        <div class="col-sm-offset-6 col-sm-18">
           <span class="my-wizard-page-slide my-wizard-page-slide-left">{{ currentPage.name }}</span>
         </div>
       </div>
     </legend>
 
     <div class="row">
-      <div class="col-sm-offset-3 col-sm-9">
+      <div class="col-sm-offset-6 col-sm-18">
         <p class="my-wizard-page-slide my-wizard-page-slide-right">{{ currentPage.description }}</p>
       </div>
     </div>
@@ -32,14 +32,14 @@
 
     <legend>
       <div class="row">
-        <div class="col-sm-offset-3 col-sm-3">Summary</div>
+        <div class="col-sm-offset-6 col-sm-6">Summary</div>
       </div>
     </legend>
 
     <div class="form-group">
-      <label class="control-label col-sm-3">Form data</label>
+      <label class="control-label col-sm-6">Form data</label>
 
-      <div class="col-sm-9">
+      <div class="col-sm-18">
         <div jsonify="data"></div>
       </div>
     </div>
@@ -48,7 +48,7 @@
 
   <div class="row">
 
-    <div class="col-sm-offset-3 col-sm-3">
+    <div class="col-sm-offset-6 col-sm-6">
       <button type="button" class="btn btn-default" ng-class="{ disabled: !prevAllowed() }" ng-click="prevPage()">
         Previous
       </button>
@@ -62,5 +62,3 @@
 
   </div>
 </form>
-
-    

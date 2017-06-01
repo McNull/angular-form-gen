@@ -10,7 +10,7 @@
   <div class="row">
     <form class="{{ form.layout || 'form-horizontal'}}" name="form.$state">
 
-      <fieldset class="col-sm-8">
+      <fieldset class="col-sm-16">
         <legend>{{ form.name }}</legend>
         <p ng-if="form.description">{{ form.description }}</p>
 
@@ -20,7 +20,7 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-9" ng-class="{ 'col-sm-offset-3': form.layout != 'form' }">
+          <div class="col-sm-18" ng-class="{ 'col-sm-offset-6': form.layout != 'form' }">
             <button type="submit" class="btn btn-primary" ng-click="onSave()"
                     ng-class="{ 'disabled': form.$state.$pristine || form.$state.$invalid }">Save
             </button>
@@ -34,4 +34,3 @@
 
   </div>
 </div>
-

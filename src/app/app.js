@@ -10,8 +10,8 @@ var app = angular.module('app',
     'inform',
     'inform-exception',
     'inform-http-exception',
-    'blockUI',
-    'markdown'
+    'blockUI'
+    //'markdown'
   ]);
 
 app.config(function(seoDefaults) {
@@ -26,11 +26,9 @@ app.controller('MainCtrl', function ($scope, appMenuItems, seoPageState) {
 });
 
 //app.config(function(fgConfigProvider) {
-//  
+//
 //  var numberField = fgConfigProvider.fields.get('number');
 //  numberField.editor = { visible: false };
-//  
+//
 //});
 //
-
-

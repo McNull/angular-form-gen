@@ -1,5 +1,4 @@
 fg.directive('fgField', function(fgFieldLinkFn) {
-
   return {
     require: ['^?fgForm', 'fgField'],
     replace: true,
@@ -20,13 +19,10 @@ fg.directive('fgField', function(fgFieldLinkFn) {
 
     var fgFormCtrl = ctrls[0];
     var fgFieldCtrl = ctrls[1];
-
     if ($scope.tabIndex === undefined) {
       $scope.tabIndex = 'auto';
     }
-
     $scope.renderInfo = fgUtils.getRenderInfo($scope.fieldSchema);
-
     fgFieldCtrl.init(fgFormCtrl, $scope.fieldSchema, $scope.editMode);
   };
 });

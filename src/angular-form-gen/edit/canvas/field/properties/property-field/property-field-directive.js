@@ -10,7 +10,7 @@ fg.directive('fgPropertyField', function(fgPropertyFieldLinkFn) {
 
 }).factory('fgPropertyFieldLinkFn', function() {
   return function($scope, $element, $attrs, ctrls) {
-    
+
     $attrs.$observe('fgPropertyField', function(value) {
       $scope.fieldName = value;
     });

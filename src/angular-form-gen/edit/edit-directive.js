@@ -4,6 +4,10 @@ fg.directive('fgEdit', function () {
     require: 'fgSchema',
     restrict: 'AE',
     scope: {
+      addFieldCallback: "=?",
+      moveFieldCallback: "=?",
+      removeFieldCallback: "=?",
+      modifyPropertyCallback: "=?",
       // // The schema model to edit
       schema: '=?fgSchema'
 //      // Boolean indicating wether to show the default form action buttons
@@ -19,7 +23,10 @@ fg.directive('fgEdit', function () {
     controller: 'fgEditController as editCtrl',
     templateUrl: 'angular-form-gen/edit/edit.ng.html',
     link: function ($scope, $element, $attrs, schemaCtrl) {
-
+      schemaCtrl.addFieldCallback = $scope.addFieldCallback;
+      schemaCtrl.moveFieldCallback = $scope.moveFieldCallback;
+      schemaCtrl.removeFieldCallback = $scope.removeFieldCallback;
+      schemaCtrl.modifyPropertyCallback = $scope.modifyPropertyCallback;
       if ($scope.schema === undefined) {
         $scope.schema = {};
       }

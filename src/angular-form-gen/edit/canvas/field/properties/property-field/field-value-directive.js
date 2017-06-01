@@ -6,9 +6,9 @@
       Important: the transcluded form field must be name fieldValue!
 
       <div fg-property-field-value>
-        <input type="text" 
-               name="fieldValue" 
-               ng-model="field.value" 
+        <input type="text"
+               name="fieldValue"
+               ng-model="field.value"
                ng-minlength="{{ field.validation.minlength }}"
                ng-maxlength="{{ field.validation.maxlength }}"
                ng-pattern="/{{ field.validation.pattern }}/"/>
@@ -29,6 +29,10 @@ fg.directive('fgPropertyFieldValue', function(fgPropertyFieldValueLinkFn) {
 }).factory('fgPropertyFieldValueLinkFn', function($parse) {
 
   return function($scope, $element, $attrs, ctrls) {
+
+    $scope.propChanged = function() {
+      $scope.$emit('propChanged', $scope.index);
+    }
 
     $scope.draw = true;
     var frmCtrl = ctrls[0];

@@ -7,9 +7,10 @@
        tabindex="{{ tabIndex }}"
        placeholder="{{ field.schema.placeholder }}"
        min="{{ field.schema.validation.min }}"
-       max="{{ field.schema.validation.max }}" 
+       max="{{ field.schema.validation.max }}"
        ng-model="form.data[field.schema.name]"
        ng-required="field.schema.validation.required"
        ng-minlength="{{ field.schema.validation.minlength }}"
        ng-maxlength="{{ field.schema.validation.maxlength }}"
-       ng-pattern="/{{ field.schema.validation.pattern }}/">
+       ng-pattern="field.schema.validation.pattern"
+       ng-disabled="isDisabled(field.schema)">

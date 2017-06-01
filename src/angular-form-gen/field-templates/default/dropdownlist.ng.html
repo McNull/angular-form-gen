@@ -8,5 +8,6 @@
 	 placeholder="{{ field.schema.placeholder }}"
 	 ng-minlength="{{ field.schema.validation.minlength }}"
 	 ng-maxlength="{{ field.schema.validation.maxlength }}"
-	 ng-pattern="/{{ field.schema.validation.pattern }}/">
+	 ng-pattern="field.schema.validation.pattern"
+	 ng-disabled="isDisabled(field.schema)">
 </div>
